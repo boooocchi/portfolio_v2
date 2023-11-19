@@ -24,4 +24,82 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+  scroll-behavior: smooth;
+}
+
+.vertical-swiper {
+  width: 100%;
+  height: 100vh;
+}
+
+/* pagenation dots */
+/*create the outer border line for active bullet*/
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+    background-color: rgba(246, 70, 0, 0.3);
+  }
+  100% {
+    transform: rotate(225deg);
+    background-color: rgb(246, 70, 0);
+  }
+}
+.swiper-pagination-vertical
+  .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  border-radius: 0;
+  animation: rotate 500ms forwards;
+  padding: 5px 5px 5px 5px;
+  border: none;
+  background-color: transparent;
+}
+
+.swiper-pagination-vertical .swiper-pagination-bullet {
+  border: black 3px solid;
+  border-radius: 30px;
+  width: 7px;
+  height: 7px;
+}
+
+.swiper-pagination-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 30px;
+  gap: 10px;
+}
+
+/* work swiper */
+
+.work-swiper {
+  width: 50% !important;
+}
+
+/* navButton */
+.navButton::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.1rem;
+  background-color: white;
+  opacity: 0;
+  transition: transform 200ms;
+}
+
+.navButton:hover::after {
+  opacity: 1;
+  transform: translate3d(0, 0.1em, 1rem);
+}
+
+.activeNavButton::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.1rem;
+  background-color: white;
+  opacity: 1;
+  transition: transform 200ms;
 }
