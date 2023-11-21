@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import Hero from "@/components/Hero";
 import Header from "@/components/Header";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Skills from "@/components/Skills";
+
+import { useMediaQuery } from "react-responsive";
 // Import Swiper React components
 import {
   Swiper,
@@ -20,68 +22,22 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import Works from "@/components/Works";
-import VerticalLink from "@/components/verticalLink";
+import VerticalLink from "@/components/VerticalLink";
+import PcLayout from "@/components/PcLayout";
+import TabletLayout from "@/components/TabletLayout";
 
 export default function Home() {
-  const [activePageNumber, setActivePageNumber] = React.useState(0);
+  const isTablet = useMediaQuery({ query: "(max-width: 1023px)" });
+  const [componentStructure, setComponentStructure] =
+    React.useState<React.ReactNode>(null);
 
-  const pagination = {
-    clickable: true,
-    paginationBulletRender: function (
-      _swiper: any,
-      _index: any,
-      className: any
-    ) {
-      return (
-        '<span class=" ' +
-        className +
-        "dotContainer" +
-        '"><div class="inner-dot"></div></div>'
-      );
+  useEffect(() => {
+    if (isTablet) {
+      setComponentStructure(<TabletLayout />);
+    } else {
+      setComponentStructure(<PcLayout />);
     }
-  };
+  }, [isTablet]);
 
-  const [swiper, setSwiper] = React.useState<SwiperClass | null>(null);
-
-  const handlePageSwipe = (number: number) => {
-    swiper?.slideTo(number);
-  };
-
-  const handleSlideChange = (swiperInstance: any) => {
-    console.log(swiperInstance.activeIndex);
-    setActivePageNumber(swiperInstance.activeIndex);
-  };
-  return (
-    <main className="bg-mainBlue relative">
-      <Header swiper={handlePageSwipe} activePageNumber={activePageNumber} />
-
-      <Swiper
-        onSwiper={setSwiper}
-        onSlideChange={handleSlideChange}
-        spaceBetween={0}
-        mousewheel={true}
-        slidesPerView={1}
-        direction={"vertical"}
-        modules={[Pagination, Mousewheel]}
-        pagination={pagination}
-        className="vertical-swiper"
-      >
-        <SwiperSlide>
-          <Hero />
-        </SwiperSlide>
-        <SwiperSlide>
-          <About />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Skills />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Works />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Contact />
-        </SwiperSlide>
-      </Swiper>
-    </main>
-  );
+  return <main className="bg-mainBlue relative ">{componentStructure}</main>;
 }

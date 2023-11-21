@@ -7,7 +7,6 @@ import { roboto, rubik } from "../../font_family/font_family";
 import SectionTitle from "./title/SectionTitle";
 
 import AccentSpan from "./title/AccentSpan";
-import VerticalLink from "./verticalLink";
 
 const About = () => {
   return (

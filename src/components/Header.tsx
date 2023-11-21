@@ -1,10 +1,10 @@
 import React from "react";
 import { roboto, robotoBold } from "../../font_family/font_family";
-import VerticalLink from "./verticalLink";
+import VerticalLink from "./VerticalLink";
 
 type HeaderProps = {
-  swiper: any;
-  activePageNumber: number;
+  swiper?: any | undefined;
+  activePageNumber?: number;
 };
 
 const Header: React.FC<HeaderProps> = ({ swiper, activePageNumber }) => {
@@ -29,10 +29,9 @@ const Header: React.FC<HeaderProps> = ({ swiper, activePageNumber }) => {
 
   return (
     <>
-      <nav className=" h-[4rem] w-full fixed z-[100] mix-blend-difference bg-black">
-        <VerticalLink activePageNumber={activePageNumber} />
+      <nav className="max-w-[1500px] h-[4rem] w-full fixed z-[100] mix-blend-difference bg-black left-1/2 translate-x-[-50%]">
         <div className="h-full w-4/5 mx-auto flex items-center justify-between">
-          <button onClick={() => swiper(0)}>
+          <button onClick={() => swiper && swiper(0)}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -54,14 +53,14 @@ const Header: React.FC<HeaderProps> = ({ swiper, activePageNumber }) => {
             <ul className="flex gap-[2rem]">
               {navItems.map((item) => {
                 let className = "text-white navButton inline-block relative";
-                if (item.id === activePageNumber) {
+                if (activePageNumber && item.id === activePageNumber) {
                   className =
                     "text-white activeNavButton inline-block relative";
                 }
                 return (
                   <button
                     key={item.id}
-                    onClick={() => swiper(item.id)}
+                    onClick={() => swiper && swiper(item.id)}
                     className={className}
                   >
                     {item.name}

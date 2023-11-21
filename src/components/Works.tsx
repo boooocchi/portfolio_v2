@@ -16,9 +16,13 @@ import Button from "./button/Button";
 import { Span } from "next/dist/trace";
 import Link from "next/link";
 
+interface FlippedState {
+  [key: number]: boolean;
+}
+
 const Works = () => {
   const worksCardSwiperRef = useRef<SwiperRef>(null);
-  const [isFlipped, setIsFlipped] = React.useState({
+  const [isFlipped, setIsFlipped] = React.useState<FlippedState>({
     1: false,
     2: false,
     3: false
@@ -134,7 +138,7 @@ const Works = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button width="w-full mt-auto">VISIT WEBSITE</Button>
+              <Button additionalClass="w-full mt-auto">VISIT WEBSITE</Button>
             </Link>
           </div>
         </ReactCardFlip>

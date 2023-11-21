@@ -2,14 +2,14 @@ import Link from "next/link";
 import React from "react";
 
 type VerticalLinkProps = {
-  activePageNumber: number;
+  activePageNumber?: number;
 };
 
 const VerticalLink: React.FC<VerticalLinkProps> = ({ activePageNumber }) => {
   const navClass =
     activePageNumber === 0
-      ? "fixed left-5 bottom-0 z-[999] invisible opacity-0 duration-300"
-      : "fixed left-5 bottom-5 z-[999] duration-300";
+      ? "absolute left-5 bottom-10 z-[999] invisible opacity-0 duration-300"
+      : "absolute left-5 bottom-5 z-[999] duration-300 mix-blend-difference";
 
   return (
     <div className={navClass}>
