@@ -15,6 +15,7 @@ import ReactCardFlip from "react-card-flip";
 import Button from "./button/Button";
 import { Span } from "next/dist/trace";
 import Link from "next/link";
+import { useMediaQuery } from "react-responsive";
 
 interface FlippedState {
   [key: number]: boolean;
@@ -31,7 +32,13 @@ const Works = () => {
   const flipCard = (index: number) => {
     setIsFlipped((prev) => ({ ...prev, [index]: !prev[index] }));
   };
+  const isPc = useMediaQuery({
+    query: "(min-width: 1025px)"
+  });
 
+  const isSM = useMediaQuery({
+    query: "(max-width:640px)"
+  });
   const workCards = [
     {
       title: '"SmartRecipe"',
@@ -72,7 +79,7 @@ const Works = () => {
         key={index}
       >
         <h2
-          className={`text-center text-mainYellow text-[1.2rem] mb-1  ${rubik.className}`}
+          className={`text-center text-mainYellow text-[.9rem] xs:text-[1rem] md:text-[1.2rem] mb-1  ${rubik.className}`}
         >
           {workCard.title}
         </h2>
@@ -81,17 +88,17 @@ const Works = () => {
           isFlipped={isFlipped[index + 1]}
         >
           <div
-            className="h-[430px] aspect-[4/5]  flex flex-col items-center justify-center mt-0 card mx-auto"
+            className="h-[330px] xs:h-[350px] sm:h-[380px] lg:h-[450px] aspect-[4/5]  flex flex-col items-center justify-start mt-0 card mx-auto ]"
             onClick={() => flipCard(index + 1)}
           >
             <img
               src={workCard.image}
               alt={workCard.title}
-              className=" h-[95%] w-auto"
+              className=" h-[95%] w-auto hover:after:bg-[rgba(0,0,0,0.3)"
             />{" "}
           </div>
           <div
-            className="h-[430px] aspect-[4/5] p-7 pt-5 pb-8 flex flex-col    bg-fontGray  card-back mx-auto relative"
+            className="h-[330px] xs:h-[350px] sm:h-[380px] lg:h-[450px] aspect-[4/5] p-7 pt-5 pb-8 flex flex-col    bg-fontGray  card-back mx-auto relative"
             onClick={() => flipCard(index + 1)}
           >
             <span className=" w-full flex justify-end mb-3">
@@ -145,27 +152,43 @@ const Works = () => {
       </SwiperSlide>
     );
   });
+
   return (
     <Section bgColor="mainBlue" id="works">
       <DottedOutlineBox>
-        <SectionTitle color="mainYellow">Work</SectionTitle>
+        <div className="flex  items-center">
+          <SectionTitle color="mainYellow">Work</SectionTitle>{" "}
+          <p className={`${roboto.className} ml-5 text-[.9rem] animate-bounce`}>
+            "swipe me!! ⇨"
+          </p>
+        </div>
         <div className="flex justify-center items-center  h-[88%] relative ">
           <Swiper
             ref={worksCardSwiperRef}
-            effect={"coverflow"}
-            className="swiper work-swiper -mt-3"
+            effect={isSM ? "slide" : "coverflow"}
+            className="swiper work-swiper md:-mt-4"
             loop={true}
             mousewheel={true}
-            modules={[Pagination, EffectCoverflow]}
+            modules={[EffectCoverflow]}
             centeredSlides={true}
-            spaceBetween={-50}
-            coverflowEffect={{
-              rotate: 10,
-              stretch: 20,
-              depth: 150,
-              modifier: 5,
-              slideShadows: false
-            }}
+            spaceBetween={isSM ? 10 : isPc ? -400 : -300}
+            coverflowEffect={
+              !isSM
+                ? {
+                    rotate: 10,
+                    stretch: 10,
+                    depth: isPc ? 1000 : 500,
+                    modifier: 2,
+                    slideShadows: false
+                  }
+                : {
+                    rotate: 0,
+                    stretch: 0,
+                    depth: 0,
+                    modifier: 0,
+                    slideShadows: false
+                  }
+            }
             pagination={{
               el: "#containerForBullets",
               type: "bullets",
@@ -176,14 +199,14 @@ const Works = () => {
           >
             {SwiperSlides}
           </Swiper>
-          <div className="absolute left-[20%] top-[40%] z-10 bg-[rgba(0,0,0,0.5)] rounded-sm p-1 flex justify-center items-center">
+          <div className="hover:scale-125  absolute -left-3 sm:left-[5%] lg:left-[15%] top-[45%] z-10 bg-[rgba(0,0,0,0.5)] rounded-sm p-1 flex justify-center items-center duration-100">
             <button
-              className=" hover:transform hover:scale-115 animate-transform duration-100 drop-shadow-2xl"
+              className=" hover:transform animate-transform drop-shadow-2xl"
               onClick={() => worksCardSwiperRef?.current?.swiper?.slidePrev()}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                height="2rem"
+                height={isSM ? "1.8rem" : "2rem"}
                 viewBox="0 0 448 512"
                 fill="#ddd"
               >
@@ -191,14 +214,14 @@ const Works = () => {
               </svg>
             </button>
           </div>
-          <div className="absolute right-[20%] top-[40%] z-10 bg-[rgba(0,0,0,0.5)] rounded-sm p-1 flex justify-center items-center">
+          <div className=" hover:scale-125 duration-100 absolute -right-3 sm:right-[5%] lg:right-[15%] top-[45%] z-10 bg-[rgba(0,0,0,0.5)] rounded-sm p-1 flex justify-center items-center">
             <button
               className="hover:transform hover:scale-115 animate-transform duration-100 drop-shadow-2xl"
               onClick={() => worksCardSwiperRef?.current?.swiper?.slideNext()}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                height="2rem"
+                height={isSM ? "1.8rem" : "2rem"}
                 viewBox="0 0 448 512"
                 className="text-fontGray"
                 fill="#ddd"

@@ -49,7 +49,7 @@ const PcLayout = () => {
   };
 
   return (
-    <div className="max-w-[1500px] mx-auto relative ">
+    <div className=" max-w-[1500px] mx-auto relative ">
       <>
         <VerticalLink activePageNumber={activePageNumber} />
         <Header swiper={handlePageSwipe} activePageNumber={activePageNumber} />

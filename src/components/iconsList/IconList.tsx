@@ -26,7 +26,7 @@ const IconList: React.FC<iconLiProps> = ({
 
   return (
     <li>
-      <div className="flex flex-col items-center justify-center gap-0 h-[4rem] w-[3.5rem] ">
+      <div className="flex flex-col items-center justify-center gap-0 h-[3.5rem] w-[3.5rem] ">
         <div className="flex items-center h-4/5">
           <svg
             xmlns={xmlns}
@@ -40,7 +40,7 @@ const IconList: React.FC<iconLiProps> = ({
             {path3 && <path d={path3} fill-rule="nonzero" opacity="0.405" />}
           </svg>
         </div>
-        <div className="text-[.6rem] sm:text-[.8rem] text-mainBlack text-center">
+        <div className="text-[.6rem] sm:text-[.7rem] text-mainBlack text-center">
           {name}
         </div>
       </div>

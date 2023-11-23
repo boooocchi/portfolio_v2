@@ -51,7 +51,7 @@ const Header: React.FC<HeaderProps> = ({ swiper, activePageNumber }) => {
               viewBox="0 0 24 24"
               stroke-width="2"
               stroke="currentColor"
-              className="w-8 h-8 text-white font-extrabold hover:scale-110 duration-300"
+              className="w-7 h-7 text-white font-extrabold hover:scale-110 duration-300"
             >
               <path
                 stroke-linecap="round"

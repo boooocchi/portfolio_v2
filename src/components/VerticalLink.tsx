@@ -1,15 +1,21 @@
 import Link from "next/link";
 import React from "react";
 
+import { useMediaQuery } from "react-responsive";
+
 type VerticalLinkProps = {
   activePageNumber?: number;
 };
 
 const VerticalLink: React.FC<VerticalLinkProps> = ({ activePageNumber }) => {
-  const navClass =
-    activePageNumber === 0
-      ? "fixed left-5 bottom-10 z-[999] invisible opacity-0 duration-300"
-      : "fixed left-5 bottom-5 z-[999] duration-300 mix-blend-difference";
+  const isTablet = useMediaQuery({
+    query: "(max-width: 820px)"
+  });
+  const navClass = isTablet
+    ? "hidden"
+    : activePageNumber === 0
+    ? "fixed left-5 bottom-10 z-[999] invisible opacity-0 duration-300"
+    : "fixed left-5 bottom-5 z-[999] duration-300 mix-blend-difference";
 
   return (
     <div className={navClass}>

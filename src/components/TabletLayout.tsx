@@ -9,7 +9,7 @@ import Contact from "./Contact";
 
 const TabletLayout = () => {
   return (
-    <div>
+    <div className="min-w-[375px]">
       <VerticalLink />
       <Header />
       <Hero />
