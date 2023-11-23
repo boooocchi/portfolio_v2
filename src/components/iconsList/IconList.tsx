@@ -1,4 +1,5 @@
 import React from "react";
+import { useMediaQuery } from "react-responsive";
 
 type iconLiProps = {
   xmlns: string;
@@ -19,14 +20,18 @@ const IconList: React.FC<iconLiProps> = ({
   path3,
   name
 }) => {
+  const isTablet = useMediaQuery({
+    query: "(max-width: 820px)"
+  });
+
   return (
     <li>
       <div className="flex flex-col items-center justify-center gap-0 h-[4rem] w-[3.5rem] ">
         <div className="flex items-center h-4/5">
           <svg
             xmlns={xmlns}
-            height="2.2rem"
-            width="2.2rem"
+            height={isTablet ? "1.7rem" : "2.2rem"}
+            width={isTablet ? "1.7rem" : "2.2rem"}
             viewBox={viewBox}
             fill={fill}
           >
@@ -35,7 +40,9 @@ const IconList: React.FC<iconLiProps> = ({
             {path3 && <path d={path3} fill-rule="nonzero" opacity="0.405" />}
           </svg>
         </div>
-        <div className="text-[.8rem] text-mainBlack text-center">{name}</div>
+        <div className="text-[.6rem] sm:text-[.8rem] text-mainBlack text-center">
+          {name}
+        </div>
       </div>
     </li>
   );

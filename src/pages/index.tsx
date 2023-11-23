@@ -27,7 +27,9 @@ import PcLayout from "@/components/PcLayout";
 import TabletLayout from "@/components/TabletLayout";
 
 export default function Home() {
-  const isTablet = useMediaQuery({ query: "(max-width: 1023px)" });
+  const isTablet = useMediaQuery({
+    query: "(max-width: 1024px)"
+  });
   const [componentStructure, setComponentStructure] =
     React.useState<React.ReactNode>(null);
 

@@ -15,7 +15,7 @@ const About = () => {
         <div>
           <SectionTitle color="mainYellow">ABOUT ME</SectionTitle>
           <p
-            className={`${roboto.className} mt-3 mb-8 leading-7 text-fontGray text-[.9rem]`}
+            className={`${roboto.className} mt-0 md:mt-3 md:mb-8 mb-6 leading-[1.2rem]  md:leading-6 text-fontGray md:text-[.9rem] text-[.8rem]`}
           >
             Highly motivated frontend web developer with strong focus on{" "}
             <AccentSpan>React</AccentSpan> and{" "}
@@ -27,7 +27,7 @@ const About = () => {
           </p>
           <SectionTitle color="mainYellow">A little story</SectionTitle>
           <p
-            className={`${roboto.className}  leading-7 text-[.9rem] mt-3 mb-5 text-fontGray`}
+            className={`${roboto.className} leading-[1.2rem]  md:leading-6 md:text-[.9rem] text-[.8rem] mt-0  md:mt-3 mb-5 text-fontGray`}
           >
             Prior to my foray into the world of web development, <br />I worked
             as a <AccentSpan>Japanese salesman</AccentSpan> for an old incense

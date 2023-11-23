@@ -24,10 +24,10 @@ const config: Config = {
       xs: "480px",
 
       sm: "640px",
-      md: "820px",
+      md: "821px",
       // => @media (min-width: 640px) { ... }
 
-      lg: "1024px",
+      lg: "1025px",
       // => @media (min-width: 1024px) { ... }
 
       xl: "1280px"
@@ -35,6 +35,7 @@ const config: Config = {
     },
     backgroundImage: {
       "hero_bg_image": "url('/hero.jpg')",
+      "hero_bg_image_tablet": "url('/hero_tb.png')",
       "snipperts_bg_image": "url('/snipperts_of_my_hazy_days.png')",
       "sharEx_bg_image": "url('/sharEx.png')",
       "smartRecipe_bg_image": "url('/smartRecipe.png')"

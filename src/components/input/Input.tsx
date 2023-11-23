@@ -22,13 +22,13 @@ const Input: React.FC<InputProps> = ({
   handleBlur
 }) => {
   return (
-    <div className="flex gap-3">
+    <div className="flex items-center gap-3 mt-6 md:m-0">
       {children && children}
-      <div className="flex flex-col gap-2 w-full mt-[2px] relative group z-0">
+      <div className="flex flex-col gap-2 w-full relative group z-0">
         <input
           type="text"
           id={name}
-          className="block appearance-none peer w-full bg-transparent border-0 border-b border-mainBlack text-mainBlack px-2 py-1 focus:outline-none h-[1.8rem] focus:border-accentOrange"
+          className="relative top-1 appearance-none peer w-full bg-transparent border-0 border-b-[.5px] border-mainBlack text-mainBlack px-1 sm:px-2 py-1 focus:outline-none h-[1.8rem] focus:border-accentOrange"
           placeholder=" "
           {...register}
           onFocus={() => handleFocus && handleFocus(name)}
@@ -36,7 +36,7 @@ const Input: React.FC<InputProps> = ({
         />
         <label
           htmlFor={name}
-          className="ml-3 test-black origin-[0] -z-10 -translate-y-6  absolute duration-300 transform peer-placeholder-shown:scale-[90%] peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6  text-mainBlack peer-focus:text-accentOrange"
+          className="ml-3 test-black origin-[0] -z-10  absolute duration-300 transform peer-placeholder-shown:scale-[90%] peer-placeholder-shown:translate-y-1 peer-focus:scale-75 peer-focus:-translate-y-5  text-mainBlack peer-focus:text-accentOrange"
         >
           {name}
         </label>

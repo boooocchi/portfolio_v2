@@ -8,8 +8,8 @@ type VerticalLinkProps = {
 const VerticalLink: React.FC<VerticalLinkProps> = ({ activePageNumber }) => {
   const navClass =
     activePageNumber === 0
-      ? "absolute left-5 bottom-10 z-[999] invisible opacity-0 duration-300"
-      : "absolute left-5 bottom-5 z-[999] duration-300 mix-blend-difference";
+      ? "fixed left-5 bottom-10 z-[999] invisible opacity-0 duration-300"
+      : "fixed left-5 bottom-5 z-[999] duration-300 mix-blend-difference";
 
   return (
     <div className={navClass}>

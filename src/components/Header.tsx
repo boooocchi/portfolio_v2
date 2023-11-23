@@ -1,35 +1,48 @@
 import React from "react";
-import { roboto, robotoBold } from "../../font_family/font_family";
+import { roboto, robotoBold, rubik } from "../../font_family/font_family";
 import VerticalLink from "./VerticalLink";
+import { useMediaQuery } from "react-responsive";
+import { motion } from "framer-motion";
 
 type HeaderProps = {
   swiper?: any | undefined;
   activePageNumber?: number;
 };
 
+const navItems = [
+  {
+    name: "ABOUT",
+    id: 1
+  },
+  {
+    name: "SKILLS",
+    id: 2
+  },
+  {
+    name: "WORKS",
+    id: 3
+  },
+  {
+    name: "CONTACT",
+    id: 4
+  }
+];
+
 const Header: React.FC<HeaderProps> = ({ swiper, activePageNumber }) => {
-  const navItems = [
-    {
-      name: "ABOUT",
-      id: 1
-    },
-    {
-      name: "SKILLS",
-      id: 2
-    },
-    {
-      name: "WORKS",
-      id: 3
-    },
-    {
-      name: "CONTACT",
-      id: 4
-    }
-  ];
+  const isTablet = useMediaQuery({
+    query: "(max-width: 820px)"
+  });
+
+  const [isOpen, setIsOpen] = React.useState<boolean>(false);
 
   return (
     <>
-      <nav className="max-w-[1500px] h-[4rem] w-full fixed z-[100] mix-blend-difference bg-black left-1/2 translate-x-[-50%]">
+      <MenuModal isOpen={isOpen} setIsOpen={setIsOpen} />
+      <nav
+        className={`max-w-[1500px] h-[3.5rem] md:h-[4rem] w-full fixed z-[100]  bg-mainBlue left-1/2 translate-x-[-50%] ${
+          !isTablet && "mix-blend-difference bg-transparent"
+        }`}
+      >
         <div className="h-full w-4/5 mx-auto flex items-center justify-between">
           <button onClick={() => swiper && swiper(0)}>
             <svg
@@ -38,7 +51,7 @@ const Header: React.FC<HeaderProps> = ({ swiper, activePageNumber }) => {
               viewBox="0 0 24 24"
               stroke-width="2"
               stroke="currentColor"
-              className="w-7 h-7 text-white font-extrabold hover:scale-110 duration-300"
+              className="w-8 h-8 text-white font-extrabold hover:scale-110 duration-300"
             >
               <path
                 stroke-linecap="round"
@@ -50,24 +63,48 @@ const Header: React.FC<HeaderProps> = ({ swiper, activePageNumber }) => {
           <div
             className={`${robotoBold.className} right-nav-wrapper text-fontGray`}
           >
-            <ul className="flex gap-[2rem]">
-              {navItems.map((item) => {
-                let className = "text-white navButton inline-block relative";
-                if (activePageNumber && item.id === activePageNumber) {
-                  className =
-                    "text-white activeNavButton inline-block relative";
-                }
-                return (
-                  <button
-                    key={item.id}
-                    onClick={() => swiper && swiper(item.id)}
-                    className={className}
-                  >
-                    {item.name}
-                  </button>
-                );
-              })}
-            </ul>
+            {isTablet ? (
+              <button
+                className="flex items-center"
+                onClick={() => {
+                  setIsOpen((prev) => !prev);
+                }}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="white"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="white"
+                  className="w-8 h-8 stroke-white"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                  />
+                </svg>
+              </button>
+            ) : (
+              <ul className="flex gap-[2rem]">
+                {navItems.map((item) => {
+                  let className = "text-white navButton inline-block relative ";
+                  if (activePageNumber && item.id === activePageNumber) {
+                    className =
+                      "text-white activeNavButton inline-block relative";
+                  }
+                  return (
+                    <button
+                      key={item.id}
+                      onClick={() => swiper && swiper(item.id)}
+                      className={className}
+                    >
+                      {item.name}
+                    </button>
+                  );
+                })}
+              </ul>
+            )}
           </div>
         </div>
       </nav>
@@ -76,3 +113,141 @@ const Header: React.FC<HeaderProps> = ({ swiper, activePageNumber }) => {
 };
 
 export default Header;
+
+// Define the type for the props
+type MenuModalProps = {
+  isOpen: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const MenuModal: React.FC<MenuModalProps> = ({ isOpen, setIsOpen }) => {
+  React.useEffect(() => {
+    // When the modal is open, disable scrolling on the body
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      // When the modal is closed, re-enable scrolling
+      document.body.style.overflow = "";
+    }
+
+    // Cleanup function to reset overflow when the component unmounts
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]); // Only re-run the effect if isOpen changes
+  const ulVariants = {
+    open: {
+      transition: { staggerChildren: 0.08, delayChildren: 0.2 }
+    },
+    closed: {
+      transition: {
+        staggerChildren: 0.03,
+        staggerDirection: -1
+      }
+    }
+  };
+
+  const buttonVariants = {
+    open: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        y: { stiffness: 1000, velocity: 1000 }
+      }
+    },
+    closed: {
+      y: 10,
+      opacity: 0,
+      transition: {
+        y: { stiffness: 1000, velocity: 1000 }
+      }
+    }
+  };
+
+  const modalVariants = {
+    open: {
+      opacity: 1,
+      transition: {
+        duration: 0.2
+      }
+    },
+    closed: {
+      opacity: 0,
+      transition: {
+        duration: 0.7
+      }
+    }
+  };
+
+  const draw = {
+    hidden: { pathLength: 0, opacity: 0 },
+    visible: {
+      pathLength: 1,
+      opacity: 1,
+      transition: {
+        pathLength: { type: "spring", duration: 0.6, bounce: 0 },
+        opacity: { duration: 0.01 }
+      }
+    }
+  };
+
+  return (
+    <>
+      <motion.div
+        initial={"closed"}
+        animate={isOpen ? "open" : "closed"}
+        variants={modalVariants}
+        className={`fixed left-0 top-0 w-screen h-screen  z-[110] bg-[rgba(0,0,0,0.3)] backdrop-blur-sm  overflow-scroll ${
+          isOpen ? "block" : "opacity-0 invisible"
+        } duration-700
+  `}
+      >
+        <button
+          className="absolute top-8 right-[10%] "
+          onClick={() => setIsOpen(false)}
+        >
+          <motion.svg
+            viewBox="0 0 600 600"
+            initial="hidden"
+            className="stroke-[5rem] h-4 w-4"
+            animate={isOpen ? "visible" : "hidden"}
+          >
+            <motion.line
+              x1="0"
+              y1="0"
+              x2="600"
+              y2="600"
+              stroke="white"
+              variants={draw}
+            />
+            <motion.line
+              x1="0"
+              y1="600"
+              x2="600"
+              y2="0"
+              stroke="white"
+              variants={draw}
+            />
+          </motion.svg>
+        </button>
+        <motion.ul
+          variants={ulVariants}
+          className={`  min-h-[500px] flex flex-col gap-[2rem] items-center justify-center text-[2rem] ${rubik.className} `}
+        >
+          {navItems.map((item) => {
+            let className = "text-fontGray  relative drop-shadow-md ";
+            return (
+              <motion.button
+                variants={buttonVariants}
+                key={item.id}
+                className={className}
+              >
+                {item.name}
+              </motion.button>
+            );
+          })}
+        </motion.ul>
+      </motion.div>
+    </>
+  );
+};

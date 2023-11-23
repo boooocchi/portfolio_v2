@@ -21,11 +21,11 @@ const Skills = () => {
     <Section bgColor="mainYellow" id="skills">
       <DottedOutlineBox lineColor="mainBlack">
         <SectionTitle color="mainBlue">My Skills</SectionTitle>
-        <div className="grid grid-cols-2 gap-x-[10%] w-full mt-5 mb-10">
+        <div className="flex flex-col md:grid md:grid-cols-[60%_40%]  gap-x-[5%] w-full my-5 md:mb-10">
           <div className="w-full">
             <Subtitle>+ Language</Subtitle>
             <div>
-              <ul className="flex gap-x-10 gap-y-5 flex-wrap">
+              <ul className="flex gap-y-2 gap-x-3 sm:gap-x-4 sm:gap-y-3 md:gap-x-7 md:gap-y-5 flex-wrap">
                 {languageSvgs.map((svg, index) => {
                   return (
                     <IconList
@@ -41,10 +41,10 @@ const Skills = () => {
               </ul>
             </div>
           </div>
-          <div className="w-full">
+          <div className="w-full mt-5 md:mt-0 ">
             <Subtitle>+ Database</Subtitle>
             <div>
-              <ul className="flex gap-x-10 gap-y-5 flex-wrap">
+              <ul className="flex gap-y-2 gap-x-3 sm:gap-x-4 sm:gap-y-3 md:gap-x-7 md:gap-y-5 flex-wrap">
                 {databaseSvgs.map((svg, index) => {
                   return (
                     <IconList
@@ -64,7 +64,7 @@ const Skills = () => {
         <div className="w-full ">
           <Subtitle>+ Framework/Library</Subtitle>
           <div>
-            <ul className="flex gap-x-10 gap-y-5 flex-wrap">
+            <ul className="flex gap-y-2 gap-x-3 sm:gap-x-4 sm:gap-y-3 md:gap-x-7 md:gap-y-5 flex-wrap">
               {frameworkLibrarySvgs.map((svg, index) => {
                 return (
                   <IconList
