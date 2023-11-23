@@ -159,7 +159,7 @@ const Works = () => {
         <div className="flex  items-center">
           <SectionTitle color="mainYellow">Work</SectionTitle>{" "}
           <p className={`${roboto.className} ml-5 text-[.9rem] animate-bounce`}>
-            "swipe me!! ⇨"
+            &quot;swipe me!! ⇨&quot;
           </p>
         </div>
         <div className="flex justify-center items-center  h-[88%] relative ">
