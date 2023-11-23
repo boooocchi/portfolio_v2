@@ -18,7 +18,11 @@ const Hero = () => {
               Hi, I&apos;m Kota, a Vancouver based Frontend developer.
             </h3>
             <div className="mt-5">
-              <Link href="https://drive.google.com/file/d/1zGk1q_65QM8ZBTvfsRbpM9jmQs3PFGK6/view?usp=sharing">
+              <Link
+                href="https://drive.google.com/file/d/1zGk1q_65QM8ZBTvfsRbpM9jmQs3PFGK6/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Button>Resume</Button>
               </Link>
             </div>
