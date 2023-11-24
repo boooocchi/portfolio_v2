@@ -263,7 +263,7 @@ const MenuModal: React.FC<MenuModalProps> = ({ isOpen, setIsOpen }) => {
         >
           {navItems.map((item) => {
             let className =
-              "text-fontGray  relative drop-shadow-md  hover:text-[2.2rem] duration-300";
+              "text-fontGray  relative drop-shadow-md  hover:text-[2.2rem]  hover:duration-300";
             return (
               <motion.a
                 variants={buttonVariants}
