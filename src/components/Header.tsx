@@ -141,19 +141,17 @@ type MenuModalProps = {
 
 const MenuModal: React.FC<MenuModalProps> = ({ isOpen, setIsOpen }) => {
   React.useEffect(() => {
-    // When the modal is open, disable scrolling on the body
     if (isOpen) {
       document.body.style.overflow = "hidden";
     } else {
-      // When the modal is closed, re-enable scrolling
       document.body.style.overflow = "";
     }
 
-    // Cleanup function to reset overflow when the component unmounts
     return () => {
       document.body.style.overflow = "";
     };
-  }, [isOpen]); // Only re-run the effect if isOpen changes
+  }, [isOpen]);
+
   const ulVariants = {
     open: {
       transition: { staggerChildren: 0.08, delayChildren: 0.2 }
@@ -210,18 +208,14 @@ const MenuModal: React.FC<MenuModalProps> = ({ isOpen, setIsOpen }) => {
     }
   };
 
-  const isPC = useMediaQuery({
-    query: "(min-width: 1025px)"
-  });
-
   return (
     <>
       <motion.div
         initial={"closed"}
         animate={isOpen ? "open" : "closed"}
         variants={modalVariants}
-        className={`fixed left-0 top-0 w-screen h-screen  z-[110] bg-[rgba(0,0,0,0.3)] backdrop-blur-sm  overflow-scroll ${
-          isOpen ? "block" : "opacity-0 invisible"
+        className={`fixed left-0 top-0 w-screen h-full  z-[110] bg-[rgba(0,0,0,0.3)] backdrop-blur-sm  overflow-scroll ${
+          isOpen ? "" : "opacity-0 invisible"
         } duration-700
   `}
       >
