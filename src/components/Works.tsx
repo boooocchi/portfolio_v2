@@ -41,7 +41,7 @@ const Works = () => {
   });
   const workCards = [
     {
-      title: '"SmartRecipe"',
+      title: "SmartRecipe",
       description:
         "A web application that enables users to easily search for recipes using  keywords and refine the search result by ingredients and diet type.",
       image: "/smartRecipe.png",
@@ -51,7 +51,7 @@ const Works = () => {
       githubLink: "https://github.com/boooocchi/React-FinalProject"
     },
     {
-      title: '"SharEx."',
+      title: "SharEx.",
       description:
         "A web application where users can share their English vocabulary and its example sentences.",
       image: "/sharEx.png",
@@ -61,7 +61,7 @@ const Works = () => {
       githubLink: "https://github.com/boooocchi/Nodejs-FinalProject"
     },
     {
-      title: '"Snippets of my hazy days"',
+      title: "Snippets of my hazy-days",
       description:
         " A Blog website where users can store their snippets of the daily moments.",
       image: "/snippets_of_my_hazy_days.png",
@@ -79,7 +79,7 @@ const Works = () => {
         key={index}
       >
         <h2
-          className={`text-center text-mainYellow text-[.7rem] xs:text-[1rem] md:text-[1.2rem] mb-1  ${rubik.className}`}
+          className={`text-center text-mainYellow text-[.8rem] xs:text-[1.1rem] md:text-[1.2rem] mb-1 w-full tracking-tighter  ${rubik.className}`}
         >
           {workCard.title}
         </h2>
@@ -98,7 +98,7 @@ const Works = () => {
             />{" "}
           </div>
           <div
-            className="h-[330px] sm:h-[380px] lg:h-[450px]  p-4 pt-3  lg:p-7 lg:pt-5 lg:pb-8 flex flex-col w-full  bg-fontGray  card-back mx-auto relative"
+            className="h-[330px] sm:h-[380px] lg:h-[450px] aspect-[4/5] p-4 pt-3  lg:p-7 lg:pt-5 lg:pb-8 flex flex-col   bg-fontGray  card-back mx-auto relative"
             onClick={() => flipCard(index + 1)}
           >
             <span className="h-[10%] w-full flex justify-end mb-0 sm:mb-3">
@@ -156,7 +156,7 @@ const Works = () => {
   });
 
   return (
-    <Section bgColor="mainBlue" id="works">
+    <Section bgColor="mainBlue" id="WORKS">
       <DottedOutlineBox>
         <div className="flex  items-center">
           <SectionTitle color="mainYellow">Work</SectionTitle>{" "}

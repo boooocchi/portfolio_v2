@@ -128,7 +128,7 @@ const Contact = () => {
     : "stroke-mainBlack";
 
   return (
-    <Section bgColor="mainYellow" id="contact">
+    <Section bgColor="mainYellow" id="CONTACT">
       <DottedOutlineBox lineColor="mainBlack">
         <SectionTitle color="mainBlue">Contact</SectionTitle>
         <div className="w-full h-full relative ">
@@ -211,7 +211,7 @@ const Contact = () => {
             </div>
             <div className="w-full md:w-[57%] flex flex-col justify-center items-center h-full ">
               <textarea
-                className="h-[12rem] md:h-full  w-full bg-fontGray p-3 md:p-8  text-mainBlack  focus:outline-accentOrange mt-10 md:mt-0"
+                className="h-[12rem] md:h-full  w-full bg-fontGray p-3 md:p-8  text-mainBlack  focus:outline-accentOrange mt-10 md:mt-0 rounded-none"
                 placeholder="Please write your message here."
                 {...register("message")}
               />

@@ -18,7 +18,7 @@ import IconList from "./iconsList/IconList";
 
 const Skills = () => {
   return (
-    <Section bgColor="mainYellow" id="skills">
+    <Section bgColor="mainYellow" id="SKILLS">
       <DottedOutlineBox lineColor="mainBlack">
         <SectionTitle color="mainBlue">My Skills</SectionTitle>
         <div className="flex flex-col md:grid md:grid-cols-[60%_40%]  gap-x-[5%] w-full my-5 md:mb-10">

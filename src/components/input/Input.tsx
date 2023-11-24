@@ -28,7 +28,7 @@ const Input: React.FC<InputProps> = ({
         <input
           type="text"
           id={name}
-          className="relative top-1 appearance-none peer w-full bg-transparent border-b  border-t-0 border-l-0 border-r-0 border-b-mainBlack  text-mainBlack px-1 sm:px-2 py-1 focus:outline-none h-[1.8rem] focus:border-accentOrange"
+          className="rounded-none relative top-1 appearance-none peer w-full bg-transparent border-b  border-t-0 border-l-0 border-r-0 border-b-mainBlack  text-mainBlack px-1 sm:px-2 py-1 focus:outline-none h-[1.8rem] focus:border-accentOrange"
           placeholder=" "
           {...register}
           onFocus={() => handleFocus && handleFocus(name)}
