@@ -82,6 +82,11 @@ const Skills = () => {
             </ul>
           </div>
         </div>
+        <span
+          className={`mt-auto text-mainBlack w-full text-end text-[.7rem] sm:text-[.9rem] ${roboto.className} tracking-tight`}
+        >
+          ...and counting!
+        </span>
       </DottedOutlineBox>
     </Section>
   );
