@@ -15,7 +15,6 @@ import { FieldErrors, FieldValue, FieldValues, useForm } from "react-hook-form";
 import Button from "./button/Button";
 import { useMediaQuery } from "react-responsive";
 import { rubik } from "../../font_family/font_family";
-import { type } from "os";
 import { motion } from "framer-motion";
 
 type ContactFormValues = {
@@ -34,7 +33,7 @@ interface CustomErrors extends FieldErrors<ContactFormValues> {
 }
 
 const Contact = () => {
-  const [messageModalOpen, setMessageModalOpen] = React.useState(true);
+  const [messageModalOpen, setMessageModalOpen] = React.useState(false);
 
   const isTablet = useMediaQuery({
     query: "(max-width: 820px)"
