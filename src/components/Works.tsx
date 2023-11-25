@@ -46,6 +46,7 @@ const Works = () => {
         "A web application that enables users to easily search for recipes using  keywords and refine the search result by ingredients and diet type.",
       image: "/smartRecipe.webp",
       squareImage: "/smartRecipe_square.webp",
+      fallBackImage: "/smartRecipe_square.png",
       techStack: ["React", "Redux", "Supabase", "Tailwind"],
       link: "https://smart-recipe-pearl.vercel.app/login",
       githubLink: "https://github.com/boooocchi/React-FinalProject"
@@ -56,6 +57,7 @@ const Works = () => {
         "A web application where users can share their English vocabulary and its example sentences.",
       image: "/sharEx.webp",
       squareImage: "/sharEx_square.webp",
+      fallBackImage: "/sharEx_square.png",
       techStack: ["React", "Next.js", "Typescript", "PostgreSQL"],
       link: "https://sharexapp.vercel.app/",
       githubLink: "https://github.com/boooocchi/Nodejs-FinalProject"
@@ -66,11 +68,20 @@ const Works = () => {
         " A Blog website where users can store their snippets of the daily moments.",
       image: "/snippets_of_my_hazy_days.webp",
       squareImage: "/snippets_of_my_hazy_days_square.webp",
+      fallBackImage: "/snippets_of_my_hazy_days_square.png",
       techStack: ["React", "Node.js", "Express", "PostgreSQL"],
       link: "https://snippetsmyhazydays-boooocchi.vercel.app/",
       githubLink: "https://github.com/boooocchi/NodejsMidterm"
     }
   ];
+
+  const handleImageError = (
+    e: React.SyntheticEvent<HTMLImageElement, Event>,
+    fallBackImage: string
+  ) => {
+    e.currentTarget.src = fallBackImage;
+    e.currentTarget.onerror = null;
+  };
 
   const SwiperSlides = workCards.map((workCard, index) => {
     return (
@@ -120,6 +131,9 @@ const Works = () => {
             </span>
             <img
               src={`${workCard.squareImage}`}
+              onError={(e) => {
+                handleImageError(e, workCard.fallBackImage);
+              }}
               alt={workCard.title}
               className=" h-[40%] aspect-[1/1] w-auto mx-auto"
             />
