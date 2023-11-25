@@ -209,7 +209,7 @@ const Contact = () => {
             </div>
             <div className="w-full md:w-[57%] flex flex-col justify-center items-center h-full ">
               <textarea
-                className="h-[12rem] md:h-full  w-full bg-fontGray p-3 md:p-8  text-mainBlack  focus:outline-accentOrange mt-10 md:mt-0 rounded-none"
+                className="h-[12rem] md:h-full  w-full bg-fontGray p-3 md:p-8  text-mainBlack  focus:outline-accentOrange mt-10 md:mt-0 rounded-none max-sm:text-[.9rem]"
                 placeholder="Please write your message here."
                 {...register("message")}
               />
