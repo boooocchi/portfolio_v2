@@ -19,13 +19,15 @@ const DottedOutlineBox: React.FC<dottedOutlineBoxProps> = ({
     <motion.div
       initial={{
         opacity: 0,
-        x: `${lineColor === "mainBlack" ? -20 : 20}`
+        x: `${lineColor === "mainBlack" ? "-10%" : "10%"}`
       }}
       whileInView={{
         opacity: 1,
-        x: 0,
+        x: "0%",
         transition: {
-          duration: 0.5
+          duration: 0.5,
+          type: "spring",
+          stiffness: 100
         }
       }}
       viewport={{ once: true, amount: 0.5 }}

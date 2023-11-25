@@ -14,6 +14,9 @@ import emailjs from "@emailjs/browser";
 import { FieldErrors, FieldValue, FieldValues, useForm } from "react-hook-form";
 import Button from "./button/Button";
 import { useMediaQuery } from "react-responsive";
+import { rubik } from "../../font_family/font_family";
+import { type } from "os";
+import { motion } from "framer-motion";
 
 type ContactFormValues = {
   name: string;
@@ -31,6 +34,8 @@ interface CustomErrors extends FieldErrors<ContactFormValues> {
 }
 
 const Contact = () => {
+  const [messageModalOpen, setMessageModalOpen] = React.useState(true);
+
   const isTablet = useMediaQuery({
     query: "(max-width: 820px)"
   });
@@ -113,9 +118,10 @@ const Contact = () => {
 
   React.useEffect(() => {
     if (isSubmitSuccessful) {
+      setMessageModalOpen(true);
       form.reset();
     }
-  });
+  }, [form, isSubmitSuccessful]);
 
   const iconColor = isFocused.name ? "stroke-accentOrange" : "stroke-mainBlack";
   const iconColor2 = isFocused.email
@@ -127,6 +133,7 @@ const Contact = () => {
 
   return (
     <Section bgColor="mainYellow" id="CONTACT">
+      {messageModalOpen && <MessageModal setModal={setMessageModalOpen} />}
       <DottedOutlineBox lineColor="mainBlack">
         <SectionTitle color="mainBlue">Contact</SectionTitle>
         <div className="w-full h-full relative flex items-center">
@@ -233,3 +240,34 @@ const Contact = () => {
 };
 
 export default Contact;
+
+type MessageModalProps = {
+  setModal: (isOpen: boolean) => void;
+};
+
+const MessageModal: React.FC<MessageModalProps> = ({ setModal }) => {
+  return (
+    <>
+      <div>
+        <div className="fixed top-0 left-0 w-full h-full bg-black opacity-50 z-[998]"></div>
+      </div>
+      <motion.div
+        initial={{ opacity: 0, y: "-10%", x: "-50%" }}
+        animate={{ opacity: 1, y: "0%", x: "-50%" }}
+        transition={{
+          duration: 0.3,
+          type: "spring",
+          stiffness: 200,
+          ease: "linear"
+        }}
+        className=" w-[85%] sm:w-[65%] md:w-[55%] lg:w-[50%] fixed top-[40%] left-[50%] -translate-x-[50%] justify-between bg-fontGray flex flex-col p-4 py-8 gap-5 z-[999] shadow-lg items-center"
+      >
+        <h1 className={`${rubik.className} text-mainBlack text-center`}>
+          Thank you!! <br />
+          <span className="text-[.8rem]">Your message successfully sent.</span>
+        </h1>
+        <Button onClick={() => setModal(false)}>close</Button>
+      </motion.div>
+    </>
+  );
+};
