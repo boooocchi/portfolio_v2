@@ -65,8 +65,6 @@ const Contact = () => {
   const formRef = useRef(null);
 
   const onSubmit = (data: ContactFormValues) => {
-    console.log(data);
-
     if (formRef.current && process.env.NEXT_PUBLIC_EMAIL_JS_SERVICE_ID) {
       emailjs
         .sendForm(

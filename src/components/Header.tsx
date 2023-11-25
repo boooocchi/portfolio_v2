@@ -36,7 +36,6 @@ const Header: React.FC<HeaderProps> = ({ swiper, activePageNumber }) => {
   const isPC = useMediaQuery({
     query: "(min-width: 1025px)"
   });
-
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
 
   return (
@@ -77,10 +76,10 @@ const Header: React.FC<HeaderProps> = ({ swiper, activePageNumber }) => {
           >
             {isTablet ? (
               <button
-                className="flex items-center"
+                className="flex items-center justify-center"
                 onClick={(e) => {
                   e.stopPropagation();
-                  setIsOpen((prev) => !prev);
+                  setIsOpen(true);
                 }}
               >
                 <svg
@@ -92,8 +91,8 @@ const Header: React.FC<HeaderProps> = ({ swiper, activePageNumber }) => {
                   className="w-8 h-8 stroke-white"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    stroke-linecap="square"
+                    stroke-linejoin="square"
                     d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
                   />
                 </svg>
@@ -185,7 +184,7 @@ const MenuModal: React.FC<MenuModalProps> = ({ isOpen, setIsOpen }) => {
     open: {
       opacity: 1,
       transition: {
-        duration: 0.2
+        duration: 0.5
       }
     },
     closed: {
@@ -207,23 +206,22 @@ const MenuModal: React.FC<MenuModalProps> = ({ isOpen, setIsOpen }) => {
       }
     }
   };
-
   return (
     <>
       <motion.div
         initial={"closed"}
         animate={isOpen ? "open" : "closed"}
         variants={modalVariants}
-        className={`fixed left-0 top-0 w-screen h-full  z-[110] bg-[rgba(0,0,0,0.3)] backdrop-blur-sm  overflow-scroll ${
-          isOpen ? "" : "opacity-0 invisible"
-        } duration-700
-  `}
+        className={`fixed left-0 top-0 w-screen h-full  z-[110] bg-[rgba(0,0,0,0.3)] backdrop-blur-sm  overflow-scroll 
+         ${isOpen ? "" : "pointer-events-none"} `}
       >
         <button
           className="absolute top-6 right-[11%] "
           onClick={(e) => {
-            e.stopPropagation();
-            setIsOpen(false);
+            if (isOpen) {
+              e.stopPropagation();
+              setIsOpen(false);
+            }
           }}
           disabled={!isOpen}
         >
