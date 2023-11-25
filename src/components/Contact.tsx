@@ -129,9 +129,9 @@ const Contact = () => {
     <Section bgColor="mainYellow" id="CONTACT">
       <DottedOutlineBox lineColor="mainBlack">
         <SectionTitle color="mainBlue">Contact</SectionTitle>
-        <div className="w-full h-full relative ">
+        <div className="w-full h-full relative flex items-center">
           <form
-            className="flex max-md:flex-col md:h-full md:gap-[10%] gap-[5%] md:justify-center md:items-center md:max-h-[400px]"
+            className="flex max-md:flex-col md:h-full md:gap-[10%] gap-[5%] md:justify-center md:items-center md:max-h-[400px] w-full"
             onSubmit={handleSubmit(onSubmit)}
             ref={formRef}
           >

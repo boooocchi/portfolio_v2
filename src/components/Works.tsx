@@ -44,8 +44,8 @@ const Works = () => {
       title: "SmartRecipe",
       description:
         "A web application that enables users to easily search for recipes using  keywords and refine the search result by ingredients and diet type.",
-      image: "/smartRecipe.png",
-      squareImage: "/smartRecipe-square.png",
+      image: "/smartRecipe.webp",
+      squareImage: "/smartRecipe_square.webp",
       techStack: ["React", "Redux", "Supabase", "Tailwind"],
       link: "https://smart-recipe-pearl.vercel.app/login",
       githubLink: "https://github.com/boooocchi/React-FinalProject"
@@ -54,8 +54,8 @@ const Works = () => {
       title: "SharEx.",
       description:
         "A web application where users can share their English vocabulary and its example sentences.",
-      image: "/sharEx.png",
-      squareImage: "/sharEx-square.png",
+      image: "/sharEx.webp",
+      squareImage: "/sharEx_square.webp",
       techStack: ["React", "Next.js", "Typescript", "PostgreSQL"],
       link: "https://sharexapp.vercel.app/",
       githubLink: "https://github.com/boooocchi/Nodejs-FinalProject"
@@ -64,8 +64,8 @@ const Works = () => {
       title: "Snippets of my hazy-days",
       description:
         " A Blog website where users can store their snippets of the daily moments.",
-      image: "/snippets_of_my_hazy_days.png",
-      squareImage: "/snippets_of_my_hazy_days-square.png",
+      image: "/snippets_of_my_hazy_days.webp",
+      squareImage: "/snippets_of_my_hazy_days_square.webp",
       techStack: ["React", "Node.js", "Express", "PostgreSQL"],
       link: "https://snippetsmyhazydays-boooocchi.vercel.app/",
       githubLink: "https://github.com/boooocchi/NodejsMidterm"

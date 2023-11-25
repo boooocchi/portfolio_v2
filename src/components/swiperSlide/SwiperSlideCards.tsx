@@ -11,19 +11,19 @@ const SwiperSlideCards = () => {
       title: '"SmartRecipe"',
       description:
         "A web application that enables users to easily search for recipes using relevant keywords and refine the search result by specifying the ingredients and diet type.",
-      image: "/smartRecipe.png"
+      image: "/smartRecipe.webp"
     },
     {
       title: '"SharEx."',
       description:
         "A web application where users can share their English vocabulary and its example sentences. It's a personal vocabulary note app but also users can contribute to a global community of English learners.",
-      image: "/sharEx.png"
+      image: "/sharEx.webp"
     },
     {
       title: '"Snippets of my hazy days"',
       description:
         " A Blog website where users can store their snippets of the daily moments.",
-      image: "/snippets_of_my_hazy_days.png"
+      image: "/snippets_of_my_hazy_days.webp"
     }
   ];
 
