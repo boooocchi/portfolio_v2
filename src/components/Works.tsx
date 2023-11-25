@@ -159,7 +159,7 @@ const Works = () => {
     <Section bgColor="mainBlue" id="WORKS">
       <DottedOutlineBox>
         <div className="flex  items-center">
-          <SectionTitle color="mainYellow">Work</SectionTitle>{" "}
+          <SectionTitle color="mainYellow">Works</SectionTitle>{" "}
           <p
             className={`${roboto.className} ml-5 sm:text-[.9rem] text-[.7rem] animate-bounce`}
           >
