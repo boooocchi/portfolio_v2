@@ -56,8 +56,8 @@ const Works = () => {
       description:
         "A web application where users can share their English vocabulary and its example sentences.",
       image: "/sharEx.webp",
-      squareImage: "/sharEx_square.webp",
-      fallBackImage: "/sharEx_square.png",
+      squareImage: "/SharEx_square.webp",
+      fallBackImage: "/SharEx_square.png",
       techStack: ["React", "Next.js", "Typescript", "PostgreSQL"],
       link: "https://sharexapp.vercel.app/",
       githubLink: "https://github.com/boooocchi/Nodejs-FinalProject"
@@ -67,8 +67,8 @@ const Works = () => {
       description:
         " A Blog website where users can store their snippets of the daily moments.",
       image: "/snippets_of_my_hazy_days.webp",
-      squareImage: "/snippets_of_my_hazy_days_square.webp",
-      fallBackImage: "/snippets_of_my_hazy_days_square.png",
+      squareImage: "/Snippets_of_my_hazy_days_square.webp",
+      fallBackImage: "/Snippets_of_my_hazy_days_square.png",
       techStack: ["React", "Node.js", "Express", "PostgreSQL"],
       link: "https://snippetsmyhazydays-boooocchi.vercel.app/",
       githubLink: "https://github.com/boooocchi/NodejsMidterm"
