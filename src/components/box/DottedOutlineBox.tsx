@@ -18,7 +18,7 @@ const DottedOutlineBox: React.FC<dottedOutlineBoxProps> = ({
   return (
     <motion.div
       initial={{
-        opacity: 0,
+        opacity: 0.1,
         y: "15%"
       }}
       whileInView={{
