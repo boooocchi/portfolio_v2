@@ -19,18 +19,18 @@ const DottedOutlineBox: React.FC<dottedOutlineBoxProps> = ({
     <motion.div
       initial={{
         opacity: 0,
-        x: `${lineColor === "mainBlack" ? "-10%" : "10%"}`
+        y: "30%"
       }}
       whileInView={{
         opacity: 1,
-        x: "0%",
+        y: "0%",
         transition: {
-          duration: 0.5,
+          duration: 0.4,
           type: "spring",
-          stiffness: 100
+          stiffness: 150
         }
       }}
-      viewport={{ once: true, amount: 0.5 }}
+      viewport={{ once: true, amount: 0.3 }}
       className={dottedOutlineBoxClassName}
     >
       {children}

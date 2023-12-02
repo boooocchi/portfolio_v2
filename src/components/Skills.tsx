@@ -7,8 +7,6 @@ import { roboto, rubik } from "../../font_family/font_family";
 import SectionTitle from "./title/SectionTitle";
 import Subtitle from "./title/Subtitle";
 
-import AccentSpan from "./title/AccentSpan";
-
 import {
   databaseSvgs,
   frameworkLibrarySvgs,

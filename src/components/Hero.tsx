@@ -115,7 +115,7 @@ const Hero = () => {
               transition={{ duration: 0.3, delay: 0.6 }}
             >
               <Link
-                href="https://drive.google.com/file/d/1zGk1q_65QM8ZBTvfsRbpM9jmQs3PFGK6/view?usp=sharing"
+                href="https://drive.google.com/file/d/1TwaLWXM29RUKLkFSjQZsI6g7E7A9HUKT/view?usp=drive_link"
                 target="_blank"
                 rel="noopener noreferrer"
               >
