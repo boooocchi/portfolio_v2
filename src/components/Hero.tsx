@@ -1,12 +1,17 @@
 import React from "react";
-import { rubik, roboto } from "../../font_family/font_family";
+import { rubik, roboto, japanese } from "../../font_family/font_family";
 import Button from "./button/Button";
 import Link from "next/link";
 import { motion } from "framer-motion";
-
-const Hero = () => {
+import { useTranslation } from "next-i18next";
+const Hero = ({}) => {
   const heroTitle1 = ["F", "R", "O", "N", "T", "E", "N", "D"];
   const heroTitle2 = ["D", "E", "V", "E", "L", "O", "P", "E", "R"];
+
+  const { t } = useTranslation("common");
+  const { i18n } = useTranslation();
+  const currentFont = i18n.language === "ja" ? japanese : roboto;
+
   return (
     <div className="w-full h-full flex items-center" id="hero">
       <section className=" w-full bg-hero_bg_image_tablet md:bg-hero_bg_image  bg-cover  bg-center max-lg:bg- bg-no-repeat flex items-center h-full  min-h-[600px] max-h-[900px] aspect-[3/4] md:aspect-auto md:min-h-[700px]  mx-auto">
@@ -101,12 +106,12 @@ const Hero = () => {
               </div>
             </h1>
             <motion.h3
-              className={`${roboto.className} mt-1 leading-[.9rem] sm:leading-[1.1rem]  sm:leading-1 md:leading-7 text-mainBlue text-[.7rem] sm:text-[1.1rem] w-[95%]`}
+              className={`${currentFont.className} mt-1 leading-[0.9rem]   sm:leading-1 md:leading-6 text-mainBlue text-[.7rem] sm:text-[1.1rem] w-[95%]`}
               initial={{ opacity: 0, y: "70%" }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: 0.6 }}
             >
-              Hi, I&apos;m Kota, a Vancouver based Frontend developer.
+              {t("hero.description")}
             </motion.h3>
             <motion.div
               className="mt-5"
@@ -119,7 +124,7 @@ const Hero = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Button>Resume</Button>
+                <Button>{t("common:resume")}</Button>
               </Link>
             </motion.div>
           </div>

@@ -1,32 +1,18 @@
 import React, { useEffect } from "react";
-import Image from "next/image";
-import Hero from "@/components/Hero";
-import Header from "@/components/Header";
-import About from "@/components/About";
-import Contact from "@/components/Contact";
-import Skills from "@/components/Skills";
+
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import { useMediaQuery } from "react-responsive";
-// Import Swiper React components
-import {
-  Swiper,
-  SwiperClass,
-  SwiperRef,
-  SwiperSlide,
-  useSwiperSlide
-} from "swiper/react";
-import { Mousewheel } from "swiper/modules";
 
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
-import Works from "@/components/Works";
-import VerticalLink from "@/components/VerticalLink";
 import PcLayout from "@/components/PcLayout";
 import TabletLayout from "@/components/TabletLayout";
+import { useTranslation } from "next-i18next";
 
 export default function Home() {
+  const { t } = useTranslation("common");
+  console.log(t("resume"));
   const isTablet = useMediaQuery({
     query: "(max-width: 1024px)"
   });
@@ -42,4 +28,12 @@ export default function Home() {
   }, [isTablet]);
 
   return <main className="bg-mainBlue relative ">{componentStructure}</main>;
+}
+
+export async function getStaticProps({ locale }: { locale: string }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["common"]))
+    }
+  };
 }

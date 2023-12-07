@@ -1,9 +1,9 @@
 import React from "react";
-import { roboto, robotoBold, rubik } from "../../font_family/font_family";
-import VerticalLink from "./VerticalLink";
+import { robotoBold, rubik } from "../../font_family/font_family";
 import { useMediaQuery } from "react-responsive";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useTranslation } from "next-i18next";
 
 type HeaderProps = {
   swiper?: any | undefined;
@@ -29,6 +29,11 @@ const navItems = [
   }
 ];
 
+type OptionLanguage = {
+  value: "ja" | "en";
+  label: string;
+};
+
 const Header: React.FC<HeaderProps> = ({ swiper, activePageNumber }) => {
   const isTablet = useMediaQuery({
     query: "(max-width: 820px)"
@@ -37,6 +42,22 @@ const Header: React.FC<HeaderProps> = ({ swiper, activePageNumber }) => {
     query: "(min-width: 1025px)"
   });
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
+
+  const languageOptions: OptionLanguage[] = [
+    { value: "en", label: "EN" },
+    { value: "ja", label: "JP" }
+  ];
+  const { i18n } = useTranslation();
+
+  const [isOptionsVisible, setIsOptionsVisible] = React.useState(false);
+
+  const toggleLanguageMenuModal = () => {
+    setIsOptionsVisible((prev) => !prev);
+  };
+  const handleSwitchLanguage = (value: string) => {
+    i18n.changeLanguage(value);
+    setIsOptionsVisible(false);
+  };
 
   return (
     <>
@@ -98,7 +119,7 @@ const Header: React.FC<HeaderProps> = ({ swiper, activePageNumber }) => {
                 </svg>
               </button>
             ) : (
-              <ul className="flex gap-[2rem]">
+              <ul className="flex gap-[2rem] items-center">
                 {navItems.map((item) => {
                   let className = "text-white navButton inline-block relative ";
                   if (activePageNumber && item.id === activePageNumber) {
@@ -121,6 +142,44 @@ const Header: React.FC<HeaderProps> = ({ swiper, activePageNumber }) => {
                     </Link>
                   );
                 })}
+                <div className="relative">
+                  <button onClick={toggleLanguageMenuModal}>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 64 64"
+                      id="language"
+                      className="w-9 h-9 relative top-1"
+                    >
+                      <path
+                        fill="white"
+                        d="M31.33 23.48a7.06 7.06 0 0 0-4.79 1.87 1.48 1.48 0 0 0-.94-.35 8.13 8.13 0 0 1-3.11-.59 12.28 12.28 0 0 0 2.48-6.3h.66a1.5 1.5 0 0 0 0-3h-4.29v-2.33a1.5 1.5 0 1 0-3 0v2.34h-4.26a1.5 1.5 0 0 0 0 3h7.84A9 9 0 0 1 20 22.67a9.32 9.32 0 0 1-1.76-2.93 1.5 1.5 0 1 0-2.82 1 12.38 12.38 0 0 0 2.11 3.63 9.28 9.28 0 0 1-3.42.6 1.5 1.5 0 1 0 0 3A11.3 11.3 0 0 0 20 26.54 10.42 10.42 0 0 0 24.71 28a7 7 0 0 0-.51 2.63v1.12H13.77a1.5 1.5 0 0 0-1.14.52 1.47 1.47 0 0 0-.34 1.21c0 .1.19 1.23.53 2.82a1 1 0 0 1-1.57 1C8.1 35 4.74 32.2 3.69 30.23a1.82 1.82 0 0 0-.15-.23 4.07 4.07 0 0 1-.74-2.35V11.52a4.13 4.13 0 0 1 4.13-4.13h25.74a4.13 4.13 0 0 1 4.13 4.13v12Zm29.87 7.13V46.7a4 4 0 0 1-.74 2.35 1.17 1.17 0 0 0-.15.27c-1 2-4.41 4.77-7.56 7.09a1 1 0 0 1-1.57-1c.34-1.6.52-2.73.53-2.83a1.49 1.49 0 0 0-1.48-1.73h-18.9a4.13 4.13 0 0 1-4.13-4.15V30.61a4.13 4.13 0 0 1 4.13-4.13h25.74a4.13 4.13 0 0 1 4.13 4.13Zm-10.42 14-1.73-4.31-3.42-8.56a1.3 1.3 0 0 0-.08-.17l-.06-.1-.09-.12-.09-.1-.1-.09-.13-.1L45 31l-.16-.09a.38.38 0 0 0-.1 0l-.16-.05H44l-.17.05a.38.38 0 0 0-.1 0l-.15.09-.11.05-.12.1-.1.09-.09.1-.1.12s0 .07-.05.1l-.09.17-3.5 8.57-1.73 4.32a1.51 1.51 0 0 0 .84 2 1.55 1.55 0 0 0 .56.11 1.51 1.51 0 0 0 1.39-1l1.34-3.35h4.84L48 45.73a1.49 1.49 0 0 0 1.39 1 1.54 1.54 0 0 0 .55-.11 1.5 1.5 0 0 0 .84-2ZM43 39.38h2.44l-1.22-3Z"
+                      ></path>
+                    </svg>
+                  </button>
+                  {isOptionsVisible && (
+                    <ul className="absolute w-full top-[2.7rem]">
+                      {languageOptions.map((option, index) => (
+                        <motion.option
+                          initial={{ opacity: 0, y: "70%" }}
+                          animate={{
+                            opacity:
+                              i18n.language !== option.value ? "0.5" : "1",
+                            y: 0
+                          }}
+                          transition={{ duration: 0.2, delay: index * 0.05 }}
+                          value={option.value}
+                          key={index}
+                          onClick={() => handleSwitchLanguage(option.value)}
+                          className={`underline text-center cursor-pointer ${
+                            i18n.language !== option.value && "opacity-25"
+                          }`}
+                        >
+                          {option.label}
+                        </motion.option>
+                      ))}
+                    </ul>
+                  )}
+                </div>
               </ul>
             )}
           </div>
@@ -150,6 +209,13 @@ const MenuModal: React.FC<MenuModalProps> = ({ isOpen, setIsOpen }) => {
       document.body.style.overflow = "";
     };
   }, [isOpen]);
+  const { i18n } = useTranslation();
+
+  const jpButtonBgColor =
+    i18n.language === "ja" ? "bg-white text-mainBlue" : "";
+  const enButtonBgColor =
+    i18n.language === "en" ? "bg-white text-mainBlue" : "";
+  console.log(i18n.language);
 
   const ulVariants = {
     open: {
@@ -206,6 +272,8 @@ const MenuModal: React.FC<MenuModalProps> = ({ isOpen, setIsOpen }) => {
       }
     }
   };
+  const navLiClassName =
+    "text-fontGray  relative drop-shadow-md  hover:text-[2.2rem]  hover:duration-300";
   return (
     <>
       <motion.div
@@ -216,7 +284,7 @@ const MenuModal: React.FC<MenuModalProps> = ({ isOpen, setIsOpen }) => {
          ${isOpen ? "" : "pointer-events-none"} `}
       >
         <button
-          className="absolute top-6 right-[11%] "
+          className="absolute top-6 right-[11%] xs:right-[8%]"
           onClick={(e) => {
             if (isOpen) {
               e.stopPropagation();
@@ -251,16 +319,14 @@ const MenuModal: React.FC<MenuModalProps> = ({ isOpen, setIsOpen }) => {
         </button>
         <motion.ul
           variants={ulVariants}
-          className={`  min-h-[500px] flex flex-col gap-[2rem] items-center justify-center text-[2rem] ${rubik.className} `}
+          className={`  min-h-[550px] flex flex-col gap-[2rem] items-center justify-center text-[2rem] ${rubik.className} `}
         >
           {navItems.map((item) => {
-            let className =
-              "text-fontGray  relative drop-shadow-md  hover:text-[2.2rem]  hover:duration-300";
             return (
               <motion.a
                 variants={buttonVariants}
                 key={item.id}
-                className={className}
+                className={navLiClassName}
                 href={`#${item.name}`}
                 onClick={(e) => {
                   e.stopPropagation();
@@ -271,6 +337,31 @@ const MenuModal: React.FC<MenuModalProps> = ({ isOpen, setIsOpen }) => {
               </motion.a>
             );
           })}
+          <motion.div
+            variants={buttonVariants}
+            className="flex flex-col gap-2 text-[.8rem] items-center
+              "
+          >
+            <span>language</span>
+            <div className="flex gap-5">
+              <button
+                className={`border border-white px-2 py-1 ${enButtonBgColor} `}
+                onClick={() => {
+                  i18n.changeLanguage("en");
+                }}
+              >
+                EN
+              </button>
+              <button
+                className={`border border-white px-2 py-1 ${jpButtonBgColor} `}
+                onClick={() => {
+                  i18n.changeLanguage("ja");
+                }}
+              >
+                JP
+              </button>
+            </div>
+          </motion.div>
         </motion.ul>
       </motion.div>
     </>

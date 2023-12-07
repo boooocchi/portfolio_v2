@@ -14,8 +14,9 @@ import emailjs from "@emailjs/browser";
 import { FieldErrors, FieldValue, FieldValues, useForm } from "react-hook-form";
 import Button from "./button/Button";
 import { useMediaQuery } from "react-responsive";
-import { rubik } from "../../font_family/font_family";
+import { japanese, roboto, rubik } from "../../font_family/font_family";
 import { motion } from "framer-motion";
+import { useTranslation } from "next-i18next";
 
 type ContactFormValues = {
   name: string;
@@ -35,6 +36,8 @@ interface CustomErrors extends FieldErrors<ContactFormValues> {
 const Contact = () => {
   const [messageModalOpen, setMessageModalOpen] = React.useState(false);
 
+  const { t, i18n } = useTranslation("common");
+  const currentFont = i18n.language === "ja" ? japanese : roboto;
   const isTablet = useMediaQuery({
     query: "(max-width: 820px)"
   });
@@ -108,10 +111,10 @@ const Contact = () => {
             fill="rgb(246, 70, 0)"
           />
         </svg>
-        Sending...
+        {t("contact.submitting")}...
       </span>
     ) : (
-      <span className=" text-center px-3 py-2 ">SUBMIT</span>
+      <span className=" text-center px-3 py-2 ">{t("contact.submit")}</span>
     );
   };
 
@@ -215,8 +218,8 @@ const Contact = () => {
             </div>
             <div className="w-full md:w-[57%] flex flex-col justify-center items-center h-full ">
               <textarea
-                className="h-[12rem] md:h-full  w-full bg-fontGray p-3 md:p-8  text-mainBlack  focus:outline-accentOrange mt-10 md:mt-0 rounded-none max-sm:text-[.9rem]"
-                placeholder="Please write your message here."
+                className={`h-[12rem] md:h-full  w-full bg-fontGray p-3 md:p-8  text-mainBlack  focus:outline-accentOrange mt-10 md:mt-0 rounded-none max-sm:text-[.9rem] ${currentFont.className}}`}
+                placeholder={t("contact.messagePlaceHolder")}
                 {...register("message")}
               />
               <ErrorMessage>{errors.message?.message}</ErrorMessage>

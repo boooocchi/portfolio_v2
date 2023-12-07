@@ -1,0 +1,14 @@
+{
+  "resume": "RESUME",
+  "hero": {
+    "description": "Hi, I'm Kota, a Vancouver based Front-end developer."
+  },
+  "contact": {
+    "submit": "SUBMIT",
+    "submitting": "SUBMITTING",
+    "messagePlaceHolder": "Please write a message here."
+  },
+  "work": {
+    "swipeMe": "SWIPE ME"
+  }
+}

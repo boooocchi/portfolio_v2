@@ -1,0 +1,14 @@
+{
+  "resume": "履歴書",
+  "hero": {
+    "description": "バンクーバーでフロントエンドデベロッパーをしています、伊藤です！"
+  },
+  "contact": {
+    "submit": "送信",
+    "submitting": "送信中",
+    "messagePlaceHolder": "メッセージを入力してください"
+  },
+  "work": {
+    "swipeMe": "横にスワイプしてください！"
+  }
+}

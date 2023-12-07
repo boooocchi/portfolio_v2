@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import Image from "next/image";
-import { roboto, rubik } from "../../font_family/font_family";
+import { japanese, roboto, rubik } from "../../font_family/font_family";
 
 import DottedOutlineBox from "./box/DottedOutlineBox";
 import SectionTitle from "./title/SectionTitle";
@@ -16,12 +16,13 @@ import Button from "./button/Button";
 import { Span } from "next/dist/trace";
 import Link from "next/link";
 import { useMediaQuery } from "react-responsive";
-
+import { useTranslation } from "next-i18next";
 interface FlippedState {
   [key: number]: boolean;
 }
 
 const Works = () => {
+  const { t } = useTranslation("common");
   const worksCardSwiperRef = useRef<SwiperRef>(null);
   const [isFlipped, setIsFlipped] = React.useState<FlippedState>({
     1: false,
@@ -169,15 +170,18 @@ const Works = () => {
     );
   });
 
+  const { i18n } = useTranslation();
+  const currentFont = i18n.language === "ja" ? japanese : roboto;
+
   return (
     <Section bgColor="mainBlue" id="WORKS">
       <DottedOutlineBox>
         <div className="flex  items-center">
           <SectionTitle color="mainYellow">Works</SectionTitle>{" "}
           <p
-            className={`${roboto.className} ml-5 sm:text-[.9rem] text-[.7rem] animate-bounce`}
+            className={`${currentFont.className} ml-5 sm:text-[.9rem] text-[.7rem] animate-bounce`}
           >
-            &quot;swipe me!!&quot;
+            &quot;{t("work.swipeMe")}&quot;
           </p>
         </div>
         <div className="flex justify-center items-center  h-[88%] relative ">
@@ -207,13 +211,6 @@ const Works = () => {
                     slideShadows: false
                   }
             }
-            pagination={{
-              el: "#containerForBullets",
-              type: "bullets",
-              bulletClass: "work-swiper-bullet",
-              bulletActiveClass: "work-swiper-bullet-active",
-              clickable: true
-            }}
           >
             {SwiperSlides}
           </Swiper>
