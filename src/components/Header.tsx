@@ -215,7 +215,6 @@ const MenuModal: React.FC<MenuModalProps> = ({ isOpen, setIsOpen }) => {
     i18n.language === "ja" ? "bg-white text-mainBlue" : "";
   const enButtonBgColor =
     i18n.language === "en" ? "bg-white text-mainBlue" : "";
-  console.log(i18n.language);
 
   const ulVariants = {
     open: {
