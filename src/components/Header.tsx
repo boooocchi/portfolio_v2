@@ -63,11 +63,11 @@ const Header: React.FC<HeaderProps> = ({ swiper, activePageNumber }) => {
     <>
       <MenuModal isOpen={isOpen} setIsOpen={setIsOpen} />
       <nav
-        className={`max-w-[1500px] h-[3.5rem] md:h-[4rem] w-full fixed z-[100]  bg-mainBlue left-1/2 translate-x-[-50%] ${
+        className={`max-w-[1500px] h-[3.5rem] md:h-[4rem] w-full fixed z-[100]  bg-mainBlue  ${
           !isTablet && "mix-blend-difference bg-transparent"
         }`}
       >
-        <div className="h-full w-4/5 mx-auto flex items-center justify-between">
+        <div className="h-full md:w-4/5 w-[90%] mx-auto flex items-center justify-between">
           <Link
             onClick={(e) => {
               if (isPC) {
