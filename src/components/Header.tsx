@@ -212,9 +212,9 @@ const MenuModal: React.FC<MenuModalProps> = ({ isOpen, setIsOpen }) => {
   const { i18n } = useTranslation();
 
   const jpButtonBgColor =
-    i18n.language === "ja" ? "bg-white text-mainBlue" : "";
+    i18n.language === "ja" ? "bg-white text-mainBlue" : "text-white";
   const enButtonBgColor =
-    i18n.language === "en" ? "bg-white text-mainBlue" : "";
+    i18n.language === "en" ? "bg-white text-mainBlue" : "text-white";
 
   const ulVariants = {
     open: {
@@ -344,7 +344,7 @@ const MenuModal: React.FC<MenuModalProps> = ({ isOpen, setIsOpen }) => {
             <span className="text-white">language</span>
             <div className="flex gap-5">
               <button
-                className={`border text-white border-white px-2 py-1 ${enButtonBgColor} `}
+                className={`border  border-white px-2 py-1 ${enButtonBgColor} `}
                 onClick={() => {
                   i18n.changeLanguage("en");
                 }}
@@ -352,7 +352,7 @@ const MenuModal: React.FC<MenuModalProps> = ({ isOpen, setIsOpen }) => {
                 EN
               </button>
               <button
-                className={`border text-white border-white px-2 py-1 ${jpButtonBgColor} `}
+                className={`border  border-white px-2 py-1 ${jpButtonBgColor} `}
                 onClick={() => {
                   i18n.changeLanguage("ja");
                 }}
