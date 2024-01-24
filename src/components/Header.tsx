@@ -338,7 +338,7 @@ const MenuModal: React.FC<MenuModalProps> = ({ isOpen, setIsOpen }) => {
           })}
           <motion.div
             variants={buttonVariants}
-            className="flex flex-col gap-2 text-[.8rem] items-center
+            className="flex flex-col gap-2 text-[.8rem] items-center text-white
               "
           >
             <span>language</span>
