@@ -63,7 +63,7 @@ const Header: React.FC<HeaderProps> = ({ swiper, activePageNumber }) => {
     <>
       <MenuModal isOpen={isOpen} setIsOpen={setIsOpen} />
       <nav
-        className={`max-w-[1500px] h-[3.5rem] md:h-[4rem] w-full fixed z-[100]  bg-mainBlue  ${
+        className={`max-w-[1500px] h-[3.5rem] md:h-[4rem] w-screen fixed z-[100]  bg-mainBlue  ${
           !isTablet && "mix-blend-difference bg-transparent"
         }`}
       >
