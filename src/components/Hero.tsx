@@ -111,7 +111,9 @@ const Hero = ({}) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: 0.6 }}
             >
-              {t("hero.description")}
+              {t("hero.description1")}
+              <br />
+              {t("hero.description2")}
             </motion.h3>
             <motion.div
               className="mt-5"

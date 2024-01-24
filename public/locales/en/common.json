@@ -1,7 +1,8 @@
 {
   "resume": "RESUME",
   "hero": {
-    "description": "Hi, I'm Kota, a Vancouver based Front-end developer."
+    "description1": "Hi, I'm Kota.",
+    "description2": "A Vancouver based Front-end developer."
   },
   "contact": {
     "submit": "SUBMIT",

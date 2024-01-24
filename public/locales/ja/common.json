@@ -1,7 +1,8 @@
 {
   "resume": "履歴書",
   "hero": {
-    "description": "バンクーバーでフロントエンドデベロッパーをしています!!"
+    "description1": "バンクーバーでフロントエンドデベロッパーをしています!!",
+    "description2": ""
   },
   "contact": {
     "submit": "送信",
