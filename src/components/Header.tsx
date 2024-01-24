@@ -341,10 +341,10 @@ const MenuModal: React.FC<MenuModalProps> = ({ isOpen, setIsOpen }) => {
             className="flex flex-col gap-2 text-[.8rem] items-center text-white
               "
           >
-            <span>language</span>
+            <span className="text-white">language</span>
             <div className="flex gap-5">
               <button
-                className={`border border-white px-2 py-1 ${enButtonBgColor} `}
+                className={`border text-white border-white px-2 py-1 ${enButtonBgColor} `}
                 onClick={() => {
                   i18n.changeLanguage("en");
                 }}
@@ -352,7 +352,7 @@ const MenuModal: React.FC<MenuModalProps> = ({ isOpen, setIsOpen }) => {
                 EN
               </button>
               <button
-                className={`border border-white px-2 py-1 ${jpButtonBgColor} `}
+                className={`border text-white border-white px-2 py-1 ${jpButtonBgColor} `}
                 onClick={() => {
                   i18n.changeLanguage("ja");
                 }}
