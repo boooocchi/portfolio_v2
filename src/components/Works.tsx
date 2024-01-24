@@ -179,7 +179,7 @@ const Works = () => {
         <div className="flex  items-center">
           <SectionTitle color="mainYellow">Works</SectionTitle>{" "}
           <p
-            className={`${currentFont.className} ml-5 sm:text-[.9rem] text-[.7rem] animate-bounce`}
+            className={`${currentFont.className} text-white ml-5 sm:text-[.9rem] text-[.7rem] animate-bounce`}
           >
             &quot;{t("work.swipeMe")}&quot;
           </p>
