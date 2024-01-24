@@ -62,7 +62,7 @@ const About = () => {
                 <AccentSpan> Typescript</AccentSpan>
                 . <br /> Excels at problem-solving and working collaboratively
                 in a team environment. <br />I am also always
-                <AccentSpan>open to new technologies</AccentSpan>
+                <AccentSpan> open to new technologies</AccentSpan>
                 !!
               </p>
               <SectionTitle color="mainYellow">A little story</SectionTitle>
