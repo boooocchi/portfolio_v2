@@ -58,8 +58,8 @@ const About = () => {
                 className={`${roboto.className} mt-0 lg:mt-3 md:mb-8 mb-6 leading-[1.2rem]  sm:leading-6 text-fontGray lg:text-[1.1rem] sm:text-[1rem] text-[.8rem]`}
               >
                 Highly motivated frontend web developer with strong focus on
-                <AccentSpan>React</AccentSpan> and
-                <AccentSpan>Typescript</AccentSpan>
+                <AccentSpan> React</AccentSpan> and
+                <AccentSpan> Typescript</AccentSpan>
                 . <br /> Excels at problem-solving and working collaboratively
                 in a team environment. <br />I am also always
                 <AccentSpan>open to new technologies</AccentSpan>
