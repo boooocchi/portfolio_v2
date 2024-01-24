@@ -10,10 +10,5 @@
   },
   "work": {
     "swipeMe": "SWIPE ME"
-  },
-  "about":
-  {
-    "frontEndDeveloperDescription": "Highly motivated frontend web developer with strong focus on <1>React</1> and <3>Typescript</3>. Excels at problem-solving and working collaboratively in a team environment. I am also always <5>open to new technologies</5>!!",
-    "littleStory": "Prior to my foray into the world of web development, I worked as a <1>Japanese salesman</1> for an old incense company in Kyoto, Japan. However, my fascination with website creation prompted me to step out of my comfort zone and develop my first blog site in 2022. This experience ultimately led me to Canada, where I am now, pursuing my passion for coding."
   }
 }

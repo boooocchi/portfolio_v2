@@ -11,7 +11,6 @@ import Link from "next/link";
 import { useTranslation } from "react-i18next";
 
 const About = () => {
-  const { t } = useTranslation("common");
   const { i18n } = useTranslation();
 
   return (

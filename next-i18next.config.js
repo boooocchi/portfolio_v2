@@ -2,7 +2,7 @@
 const nextI18NextConfig = {
   i18n: {
     defaultLocale: "en",
-    locales: ["ja", "en"],
+    locales: ["en", "ja"],
     localeDetection: false
   }
   // additional configuration options can be set here like locale path

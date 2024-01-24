@@ -36,7 +36,8 @@ const Input: React.FC<InputProps> = ({
         />
         <label
           htmlFor={name}
-          className="ml-3 test-black origin-[0] -z-10  absolute duration-300 transform peer-placeholder-shown:scale-[90%] peer-placeholder-shown:translate-y-1 peer-focus:scale-75 peer-focus:-translate-y-5  text-mainBlack peer-focus:text-accentOrange"
+          className="ml-3 test-black origin-[0] -z-10  absolute duration-300 transform peer-placeholder-shown:scale-[90%] peer-placeholder-shown:translate-y-1 peer-focus:scale-75 peer-focus:-translate-y-5  text-mainBlack peer-focus:text-accentOrange -translate-y-5  scale-75
+       "
         >
           {name}
         </label>
