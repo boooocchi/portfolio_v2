@@ -22,7 +22,7 @@ const Button: React.FC<ButtonProps> = ({
   const currentFont = i18n.language === "ja" ? japanese : roboto;
   return (
     <button
-      className={` border-transparent bg-mainBlue text-center px-2 py-2 md:px-3 md:py-2 hover:bg-fontGray hover:text-mainBlue duration-300 border-2 hover:border-mainBlue ${additionalClassName} ${currentFont.className} tracking-[0.1px] text-[.8rem] xs:text-[.9rem]`}
+      className={`text-white border-transparent bg-mainBlue text-center px-2 py-2 md:px-3 md:py-2 hover:bg-fontGray hover:text-mainBlue duration-300 border-2 hover:border-mainBlue ${additionalClassName} ${currentFont.className} tracking-[0.1px] text-[.8rem] xs:text-[.9rem]`}
       disabled={isSubmitting}
       onClick={onClick}
     >

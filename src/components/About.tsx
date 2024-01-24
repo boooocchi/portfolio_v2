@@ -40,7 +40,8 @@ const About = () => {
               <p
                 className={`${japanese.className} leading-[1.2rem] lg:text-[1.1rem]  sm:leading-7 sm:text-[1rem] text-[.8rem] mt-0  lg:mt-3 mb-5 text-fontGray`}
               >
-                エンジニアの勉強を始める以前は、 <br />
+                エンジニアの勉強を始める以前は、
+                <br />
                 日本の伝統ある会社で<AccentSpan>営業として</AccentSpan>
                 働いていました。 <br />
                 (恥ずかしながら、その時はほとんどパソコンを触ることがありませんでした...)
@@ -83,7 +84,7 @@ const About = () => {
         <div className="flex justify-end mt-auto">
           <div className="flex gap-4 xs:gap-5 items-center  relative">
             <p
-              className={`w-[150%] absolute left-1/2 -translate-x-1/2 -top-5 sm:-top-6 text-center ${roboto.className} tracking-tighter xs:text-[.7rem] sm:text-[.8rem] text-[.6rem]`}
+              className={`text-white w-[150%] absolute left-1/2 -translate-x-1/2 -top-5 sm:-top-6 text-center ${roboto.className} tracking-tighter xs:text-[.7rem] sm:text-[.8rem] text-[.6rem]`}
             >
               \visit me!!/
             </p>
