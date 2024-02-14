@@ -16,9 +16,9 @@ import IconList from "./iconsList/IconList";
 
 const Skills = () => {
   return (
-    <Section bgColor="mainYellow" id="SKILLS">
-      <DottedOutlineBox lineColor="mainBlack">
-        <SectionTitle color="mainBlue">My Skills</SectionTitle>
+    <Section bgColor="mainBlue" id="SKILLS">
+      <DottedOutlineBox>
+        <SectionTitle color="mainYellow">My Skills</SectionTitle>
         <div className="flex flex-col md:grid md:grid-cols-[60%_40%]  gap-x-[5%] w-full my-5 md:mb-10">
           <div className="w-full">
             <Subtitle>+language</Subtitle>
@@ -81,7 +81,7 @@ const Skills = () => {
           </div>
         </div>
         <span
-          className={`mt-auto text-mainBlack w-full text-end text-[.7rem] sm:text-[.9rem] ${roboto.className} tracking-tight`}
+          className={`mt-auto text-fontGray w-full text-end text-[.7rem] sm:text-[.9rem] ${roboto.className} tracking-tight`}
         >
           ...and counting!
         </span>

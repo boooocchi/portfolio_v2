@@ -28,7 +28,7 @@ const Input: React.FC<InputProps> = ({
         <input
           type="text"
           id={name}
-          className="rounded-none relative top-1 appearance-none peer w-full bg-transparent border-b  border-t-0 border-l-0 border-r-0 border-b-mainBlack  text-mainBlack px-1 sm:px-2 py-1 focus:outline-none h-[1.8rem] focus:border-accentOrange"
+          className="rounded-none relative top-1 appearance-none peer w-full bg-transparent border-b  border-t-0 border-l-0 border-r-0 border-b-fontGray  text-fontGray px-1 sm:px-2 py-1 focus:outline-none h-[1.8rem] focus:border-mainYellow"
           placeholder=" "
           {...register}
           onFocus={() => handleFocus && handleFocus(name)}
@@ -36,7 +36,7 @@ const Input: React.FC<InputProps> = ({
         />
         <label
           htmlFor={name}
-          className="ml-3 test-black origin-[0] -z-10  absolute duration-300 transform peer-placeholder-shown:scale-[90%] peer-placeholder-shown:translate-y-1 peer-focus:scale-75 peer-focus:-translate-y-5  text-mainBlack peer-focus:text-accentOrange -translate-y-5  scale-75
+          className="ml-3 test-black origin-[0] -z-10  absolute duration-300 transform peer-placeholder-shown:scale-[90%] peer-placeholder-shown:translate-y-1 peer-focus:scale-75 peer-focus:-translate-y-5  text-fontGray peer-focus:text-mainYellow -translate-y-5  scale-75
        "
         >
           {name}

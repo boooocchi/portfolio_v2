@@ -8,7 +8,7 @@ type sectionTitleProps = {
 const SectionTitle: React.FC<sectionTitleProps> = ({ children, color }) => {
   return (
     <h2
-      className={`${rubik.className} tracking-tighter text-${color} md:text-[2.5rem] sm:text-[1.8rem]  text-[1.6rem] drop-shadow-lg} mb-[.5rem]`}
+      className={`${rubik.className} tracking-tighter text-${color} md:text-[2.5rem] sm:text-[1.8rem]  text-[1.6rem] drop-shadow-lg} `}
     >
       {children}
     </h2>

@@ -91,7 +91,7 @@ const Works = () => {
         key={index}
       >
         <h2
-          className={`text-center text-mainYellow text-[.8rem] xs:text-[1.1rem] md:text-[1.2rem] mb-1 w-full tracking-tighter  ${rubik.className}`}
+          className={`text-center text-mainBlue text-[.8rem] xs:text-[1.1rem] md:text-[1.2rem] mb-1 w-full tracking-tighter  ${rubik.className}`}
         >
           {workCard.title}
         </h2>
@@ -174,12 +174,12 @@ const Works = () => {
   const currentFont = i18n.language === "ja" ? japanese : roboto;
 
   return (
-    <Section bgColor="mainBlue" id="WORKS">
-      <DottedOutlineBox>
+    <Section bgColor="patternGray" id="WORKS">
+      <DottedOutlineBox lineColor="mainBlue">
         <div className="flex  items-center">
-          <SectionTitle color="mainYellow">Works</SectionTitle>{" "}
+          <SectionTitle color="mainBlue">Works</SectionTitle>{" "}
           <p
-            className={`${currentFont.className} text-white ml-5 sm:text-[.9rem] text-[.7rem] animate-bounce`}
+            className={`${currentFont.className} text-mainBlue ml-5 sm:text-[.9rem] text-[.7rem] animate-bounce`}
           >
             &quot;{t("work.swipeMe")}&quot;
           </p>
@@ -214,7 +214,7 @@ const Works = () => {
           >
             {SwiperSlides}
           </Swiper>
-          <div className="hover:scale-125  absolute -left-3 sm:left-[5%] lg:left-[15%] top-[45%] z-10 bg-[rgba(0,0,0,0.5)] rounded-sm p-1 flex justify-center items-center duration-100">
+          <div className="hover:scale-125  absolute -left-3 sm:left-[5%] lg:left-[15%] top-[45%] z-10 bg-mainBlue rounded-sm p-1 flex justify-center items-center duration-100">
             <button
               className=" hover:transform animate-transform drop-shadow-2xl"
               onClick={() => worksCardSwiperRef?.current?.swiper?.slidePrev()}
@@ -229,7 +229,7 @@ const Works = () => {
               </svg>
             </button>
           </div>
-          <div className=" hover:scale-125 duration-100 absolute -right-3 sm:right-[5%] lg:right-[15%] top-[45%] z-10 bg-[rgba(0,0,0,0.5)] rounded-sm p-1 flex justify-center items-center">
+          <div className=" hover:scale-125 duration-100 absolute -right-3 sm:right-[5%] lg:right-[15%] top-[45%] z-10 bg-mainBlue rounded-sm p-1 flex justify-center items-center">
             <button
               className="hover:transform hover:scale-115 animate-transform duration-100 drop-shadow-2xl"
               onClick={() => worksCardSwiperRef?.current?.swiper?.slideNext()}

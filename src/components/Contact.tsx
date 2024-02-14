@@ -125,19 +125,15 @@ const Contact = () => {
     }
   }, [form, isSubmitSuccessful]);
 
-  const iconColor = isFocused.name ? "stroke-accentOrange" : "stroke-mainBlack";
-  const iconColor2 = isFocused.email
-    ? "stroke-accentOrange"
-    : "stroke-mainBlack";
-  const iconColor3 = isFocused.number
-    ? "stroke-accentOrange"
-    : "stroke-mainBlack";
+  const iconColor = isFocused.name ? "stroke-mainYellow" : "stroke-fontGray";
+  const iconColor2 = isFocused.email ? "stroke-mainYellow" : "stroke-fontGray";
+  const iconColor3 = isFocused.number ? "stroke-mainYellow" : "stroke-fontGray";
 
   return (
-    <Section bgColor="mainYellow" id="CONTACT">
+    <Section bgColor="mainBlue" id="CONTACT">
       {messageModalOpen && <MessageModal setModal={setMessageModalOpen} />}
-      <DottedOutlineBox lineColor="mainBlack">
-        <SectionTitle color="mainBlue">Contact</SectionTitle>
+      <DottedOutlineBox>
+        <SectionTitle color="mainYellow">Contact</SectionTitle>
         <div className="w-full h-full relative flex items-center">
           <form
             className="flex max-md:flex-col md:h-full md:gap-[10%] gap-[5%] md:justify-center md:items-center md:max-h-[400px] w-full"
@@ -218,7 +214,7 @@ const Contact = () => {
             </div>
             <div className="w-full md:w-[57%] flex flex-col justify-center items-center h-full ">
               <textarea
-                className={`h-[13rem] md:h-full  w-full bg-fontGray p-3 md:p-8  text-mainBlack  focus:outline-accentOrange mt-10 md:mt-0 rounded-none max-sm:text-[.9rem] ${currentFont.className}}`}
+                className={`h-[13rem] md:h-full  w-full bg-patternGray p-3 md:p-8   text-mainBlack  focus:outline-none  mt-10 md:mt-0 rounded-none max-sm:text-[.9rem] ${currentFont.className}}`}
                 placeholder={t("contact.messagePlaceHolder")}
                 {...register("message")}
               />

@@ -14,7 +14,7 @@ const config: Config = {
         mainBlack: "#090046",
         fontGray: "#eee",
         accentOrange: "rgb(246, 70, 0)",
-        patternGray: "#9EA2A6"
+        patternGray: "#ddf"
       },
       fontFamily: {
         cycle: ["var(--font-cycle)"]
