@@ -214,7 +214,7 @@ const Contact = () => {
             </div>
             <div className="w-full md:w-[57%] flex flex-col justify-center items-center h-full ">
               <textarea
-                className={`h-[13rem] md:h-full  w-full bg-patternGray p-3 md:p-8   text-mainBlack  focus:outline-none  mt-10 md:mt-0 rounded-none max-sm:text-[.9rem] ${currentFont.className}}`}
+                className={`xs:h-[13rem] sm:h-[10rem] md:h-full  w-full bg-patternGray p-3 md:p-8   text-mainBlack  focus:outline-none  mt-7 md:mt-0 rounded-none max-sm:text-[.9rem] ${currentFont.className}}`}
                 placeholder={t("contact.messagePlaceHolder")}
                 {...register("message")}
               />
@@ -226,7 +226,7 @@ const Contact = () => {
               <div className={` w-full`}>
                 <Button
                   isSubmitting={isSubmitting}
-                  additionalClass="w-full mt-10"
+                  additionalClass="w-full mt-7"
                 >
                   <SubmitButtonText />
                 </Button>
