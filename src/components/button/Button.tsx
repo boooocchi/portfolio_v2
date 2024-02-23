@@ -1,5 +1,5 @@
 import React from "react";
-import { roboto, japanese } from "../../../font_family/font_family";
+import { hind, japanese } from "../../../font_family/font_family";
 
 import { useTranslation } from "next-i18next";
 type ButtonProps = {
@@ -21,7 +21,7 @@ const Button: React.FC<ButtonProps> = ({
   const additionalClassName = additionalClass
     ? additionalClass
     : "md:w-[9rem] w-[7rem]";
-  const currentFont = i18n.language === "ja" ? japanese : roboto;
+  const currentFont = i18n.language === "ja" ? japanese : hind;
   return (
     <button
       className={` hover:outline hover:outline-mainBlue ${

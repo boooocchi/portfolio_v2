@@ -1,5 +1,5 @@
 import React from "react";
-import { roboto } from "../../../font_family/font_family";
+import { hind } from "../../../font_family/font_family";
 
 type ErrorMessageProps = {
   children: React.ReactNode;
@@ -7,7 +7,7 @@ type ErrorMessageProps = {
 const ErrorMessage: React.FC<ErrorMessageProps> = ({ children }) => {
   return (
     <p
-      className={`text-accentOrange ${roboto.className} font-light text-[0.8rem]`}
+      className={`text-accentOrange ${hind.className} font-light text-[0.8rem] absolute top-0 left-1`}
     >
       {children}
     </p>

@@ -1,8 +1,8 @@
-import { Roboto_Mono } from "next/font/google";
+import { Hind } from "next/font/google";
 import { Rubik_Mono_One } from "next/font/google";
 import { Zen_Kaku_Gothic_Antique } from "next/font/google";
 
-export const roboto = Roboto_Mono({
+export const hind = Hind({
   weight: ["400", "600"],
   subsets: ["latin"]
 });

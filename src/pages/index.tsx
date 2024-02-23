@@ -8,7 +8,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import PcLayout from "@/components/PcLayout";
 import TabletLayout from "@/components/TabletLayout";
-import { GetServerSidePropsContext, GetStaticPropsContext } from "next";
+import { GetStaticPropsContext } from "next";
 
 export default function Home() {
   const isTablet = useMediaQuery({

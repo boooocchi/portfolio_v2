@@ -3,7 +3,7 @@ import React from "react";
 import DottedOutlineBox from "./box/DottedOutlineBox";
 import Section from "./box/Section";
 
-import { roboto, japanese } from "../../font_family/font_family";
+import { hind, japanese } from "../../font_family/font_family";
 import SectionTitle from "./title/SectionTitle";
 
 import AccentSpan from "./title/AccentSpan";
@@ -21,13 +21,12 @@ const About = () => {
           {i18n.language === "ja" ? (
             <>
               <p
-                className={`${japanese.className} mt-0 lg:mt-3 md:mb-8 mb-6 xs:leading-[1.6rem] leading-[1.4rem]  text-mainBlue lg:text-[1.1rem] sm:text-[1rem] text-[.8rem]`}
+                className={`${japanese.className} leading-[1.5] lg:text-[1.1rem]   sm:text-[1rem] text-[0.9rem]  mb-5 text-mainBlue`}
               >
-                フロントエンドデベロッパーとして、日々勉強を続けています。
+                フロントエンドデベロッパーとして、日々勉強に励んでおります。
                 <br />
-                主に
                 <AccentSpan>React</AccentSpan> と
-                <AccentSpan>Typescript</AccentSpan>を使って開発しています。
+                <AccentSpan>Typescript</AccentSpan>が主要言語です。
                 <br />
                 <AccentSpan>素早い問題解決能力</AccentSpan>
                 と、チーム環境で生きる
@@ -38,7 +37,7 @@ const About = () => {
               </p>
               <SectionTitle color="mainBlue">A little story</SectionTitle>
               <p
-                className={`${japanese.className} xs:leading-[1.6rem] leading-[1.4rem] lg:text-[1.1rem]   sm:text-[1rem] text-[.8rem] mt-0  lg:mt-3 mb-5 text-mainBlue`}
+                className={`${japanese.className} leading-[1.5] lg:text-[1.1rem]   sm:text-[1rem] text-[0.9rem]  mb-5 text-mainBlue`}
               >
                 エンジニアの勉強を始める以前は、
                 <br />
@@ -55,7 +54,7 @@ const About = () => {
           ) : (
             <>
               <p
-                className={`${roboto.className} mt-0 lg:mt-3 md:mb-8 mb-6  xs:leading-[1.6rem] leading-[1.4rem]   text-mainBlue lg:text-[1.1rem] sm:text-[1rem] text-[.8rem] `}
+                className={`${hind.className} leading-[1.5] lg:text-[1.2rem]  sm:text-[1.1rem] text-[1rem]    mb-5 text-mainBlue`}
               >
                 Highly motivated frontend web developer with strong focus on
                 <AccentSpan> React</AccentSpan> and
@@ -67,7 +66,7 @@ const About = () => {
               </p>
               <SectionTitle color="mainBlue">A little story</SectionTitle>
               <p
-                className={`${roboto.className} xs:leading-[1.6rem] leading-[1.4rem] lg:text-[1.1rem]  sm:text-[1rem] text-[.8rem] mt-0  lg:mt-3 mb-5 text-mainBlue`}
+                className={`${hind.className} leading-[1.5] lg:text-[1.2rem]  sm:text-[1.1rem] text-[1rem]   mb-5 text-mainBlue`}
               >
                 Prior to my foray into the world of web development, <br />I
                 worked as a <AccentSpan>Japanese salesman</AccentSpan> for an
@@ -84,7 +83,7 @@ const About = () => {
         <div className="flex justify-end mt-auto">
           <div className="flex gap-4 xs:gap-5 items-center  relative">
             <p
-              className={`text-mainBlue w-[150%] absolute left-1/2 -translate-x-1/2 -top-5 sm:-top-6 text-center ${roboto.className} tracking-tighter xs:text-[.7rem] sm:text-[.8rem] text-[.6rem]`}
+              className={`text-mainBlue w-[150%] absolute left-1/2 -translate-x-1/2 -top-5 sm:-top-6 text-center ${hind.className} tracking-tighter xs:text-[.7rem] sm:text-[.8rem] text-[.6rem]`}
             >
               \visit me!!/
             </p>

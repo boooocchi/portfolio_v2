@@ -14,7 +14,7 @@ import emailjs from "@emailjs/browser";
 import { FieldErrors, FieldValue, FieldValues, useForm } from "react-hook-form";
 import Button from "./button/Button";
 import { useMediaQuery } from "react-responsive";
-import { japanese, roboto, rubik } from "../../font_family/font_family";
+import { japanese, hind, rubik } from "../../font_family/font_family";
 import { motion } from "framer-motion";
 import { useTranslation } from "next-i18next";
 
@@ -37,7 +37,7 @@ const Contact = () => {
   const [messageModalOpen, setMessageModalOpen] = React.useState(false);
 
   const { t, i18n } = useTranslation("common");
-  const currentFont = i18n.language === "ja" ? japanese : roboto;
+  const currentFont = i18n.language === "ja" ? japanese : hind;
   const isTablet = useMediaQuery({
     query: "(max-width: 820px)"
   });
@@ -218,7 +218,9 @@ const Contact = () => {
                 placeholder={t("contact.messagePlaceHolder")}
                 {...register("message")}
               />
-              <ErrorMessage>{errors.message?.message}</ErrorMessage>
+              <div className="relative w-full">
+                <ErrorMessage>{errors.message?.message}</ErrorMessage>
+              </div>
             </div>
             {isTablet && (
               <div className={` w-full`}>

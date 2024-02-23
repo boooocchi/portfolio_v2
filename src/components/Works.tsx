@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import Image from "next/image";
-import { japanese, roboto, rubik } from "../../font_family/font_family";
+import { japanese, hind, rubik } from "../../font_family/font_family";
 
 import DottedOutlineBox from "./box/DottedOutlineBox";
 import SectionTitle from "./title/SectionTitle";
@@ -139,7 +139,7 @@ const Works = () => {
               className=" h-[40%] aspect-[1/1] w-auto mx-auto"
             />
             <div
-              className={`sm:mt-4 mt-2 flex flex-col justify-between h-[35%] text-mainBlack  ${roboto.className} text-[.8rem] w-full leading-[.9rem]`}
+              className={`sm:mt-4 mt-2 flex flex-col justify-between h-[35%] text-mainBlack  ${hind.className} text-[.8rem] w-full leading-[.9rem]`}
             >
               <p className="h-[60%]  max-xs:text-[.7rem]">
                 {workCard.description}
@@ -171,7 +171,7 @@ const Works = () => {
   });
 
   const { i18n } = useTranslation();
-  const currentFont = i18n.language === "ja" ? japanese : roboto;
+  const currentFont = i18n.language === "ja" ? japanese : hind;
 
   return (
     <Section bgColor="patternGray" id="WORKS">

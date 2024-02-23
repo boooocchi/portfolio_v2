@@ -1,5 +1,5 @@
 import React from "react";
-import { roboto, rubik } from "../../font_family/font_family";
+import { hind, rubik } from "../../font_family/font_family";
 import { useMediaQuery } from "react-responsive";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -93,7 +93,7 @@ const Header: React.FC<HeaderProps> = ({ swiper, activePageNumber }) => {
             </svg>
           </Link>
           <div
-            className={`${roboto.className} font-bold right-nav-wrapper text-fontGray`}
+            className={`${hind.className} font-bold right-nav-wrapper text-fontGray`}
           >
             {isTablet ? (
               <button

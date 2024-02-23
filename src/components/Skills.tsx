@@ -3,7 +3,7 @@ import React from "react";
 import DottedOutlineBox from "./box/DottedOutlineBox";
 import Section from "./box/Section";
 
-import { roboto, rubik } from "../../font_family/font_family";
+import { hind, rubik } from "../../font_family/font_family";
 import SectionTitle from "./title/SectionTitle";
 import Subtitle from "./title/Subtitle";
 
@@ -81,7 +81,7 @@ const Skills = () => {
           </div>
         </div>
         <span
-          className={`mt-auto text-fontGray w-full text-end text-[.7rem] sm:text-[.9rem] ${roboto.className} tracking-tight`}
+          className={`mt-auto text-fontGray w-full text-end text-[.7rem] sm:text-[.9rem] ${hind.className} tracking-tight`}
         >
           ...and counting!
         </span>

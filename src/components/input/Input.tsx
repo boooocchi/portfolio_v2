@@ -1,6 +1,7 @@
 import React from "react";
 import { UseFormRegisterReturn } from "react-hook-form";
 import ErrorMessage from "../title/ErrorMessage";
+import { hind } from "../../../font_family/font_family";
 
 type InputProps = {
   children?: React.ReactNode;
@@ -22,13 +23,13 @@ const Input: React.FC<InputProps> = ({
   handleBlur
 }) => {
   return (
-    <div className="flex items-center gap-3 mt-6 md:m-0">
+    <div className={`flex items-center gap-3 mt-6 md:m-0 ${hind.className}`}>
       {children && children}
-      <div className="flex flex-col gap-2 w-full relative group z-0">
+      <div className="flex flex-col gap-2 w-full relative group z-0 mb-3">
         <input
           type="text"
           id={name}
-          className="rounded-none relative top-1 appearance-none peer w-full bg-transparent border-b  border-t-0 border-l-0 border-r-0 border-b-fontGray  text-fontGray px-1 sm:px-2 py-1 focus:outline-none h-[1.8rem] focus:border-mainYellow"
+          className={`rounded-none relative top-1 appearance-none peer w-full bg-transparent border-b  border-t-0 border-l-0 border-r-0 border-b-fontGray  text-fontGray px-1 sm:px-2 py-1 focus:outline-none h-[1.8rem] focus:border-mainYellow ${hind.className}`}
           placeholder=" "
           {...register}
           onFocus={() => handleFocus && handleFocus(name)}
@@ -41,7 +42,9 @@ const Input: React.FC<InputProps> = ({
         >
           {name}
         </label>
-        <ErrorMessage>{errorMessage}</ErrorMessage>
+        <div className="relative">
+          <ErrorMessage>{errorMessage}</ErrorMessage>
+        </div>
       </div>
     </div>
   );

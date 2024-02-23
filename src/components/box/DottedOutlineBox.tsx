@@ -13,11 +13,13 @@ const DottedOutlineBox: React.FC<dottedOutlineBoxProps> = ({
   const smartPhone = useMediaQuery({
     query: "(max-width: 480px)"
   });
-  let dottedOutlineBoxClassName =
-    "flex flex-col  md:gap-5 outline-fontGray  md:min-h-[600px]  h-[650px] w-[90%] md:w-[84.5%] outline-dotted outline-[1px] sm:outline-[2px] lg:mt-[2rem] px-[1.3rem] xs:px-[2rem] md:px-[4rem] py-[2rem] md:py-[3rem] relative px-[1.5rem] py-[1.5rem]";
+
+  const basicClass =
+    "flex flex-col md:min-h-[600px]  h-[650px] w-[90%] sm:w-[85%] sm:outline-dotted  lg:mt-[2rem] sm:outline-[2px] sm:py-[3rem] sm:px-[3rem] py-[1.3rem]  px-[1.3rem] relative";
+
+  let dottedOutlineBoxClassName = "outline-fontGray ";
   if (lineColor === "mainBlue") {
-    dottedOutlineBoxClassName =
-      "flex flex-col  md:gap-5 outline-mainBlue  md:min-h-[600px]  h-[650px] w-[90%] md:w-[85%] outline-dotted outline-[1px] sm:outline-[2px] lg:mt-[2rem] px-[1.3rem] xs:px-[2rem] md:px-[4rem] py-[2rem] md:py-[3rem] relative px-[1.5rem] py-[1.5rem]";
+    dottedOutlineBoxClassName = "outline-mainBlue";
   }
   return (
     <>
@@ -25,7 +27,7 @@ const DottedOutlineBox: React.FC<dottedOutlineBoxProps> = ({
         <motion.div
           initial={{
             opacity: 0,
-            x: `${lineColor === "mainBlack" ? "-10%" : "10%"}`
+            x: `${lineColor === "mainBlue" ? "-10%" : "10%"}`
           }}
           whileInView={{
             opacity: 1,
@@ -37,12 +39,14 @@ const DottedOutlineBox: React.FC<dottedOutlineBoxProps> = ({
             }
           }}
           viewport={{ once: true, amount: 0.5 }}
-          className={dottedOutlineBoxClassName}
+          className={`${dottedOutlineBoxClassName} ${basicClass}`}
         >
           {children}
         </motion.div>
       ) : (
-        <div className={dottedOutlineBoxClassName}>{children}</div>
+        <div className={`${dottedOutlineBoxClassName} ${basicClass}`}>
+          {children}
+        </div>
       )}
     </>
   );

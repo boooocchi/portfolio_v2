@@ -1,5 +1,5 @@
 import React from "react";
-import { rubik, roboto, japanese } from "../../font_family/font_family";
+import { rubik, hind, japanese } from "../../font_family/font_family";
 import Button from "./button/Button";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -10,7 +10,7 @@ const Hero = ({}) => {
 
   const { t } = useTranslation("common");
   const { i18n } = useTranslation();
-  const currentFont = i18n.language === "ja" ? japanese : roboto;
+  const currentFont = i18n.language === "ja" ? japanese : hind;
 
   return (
     <div className="w-full h-full flex items-center" id="hero">
