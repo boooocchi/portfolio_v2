@@ -9,14 +9,20 @@ import SectionTitle from "./title/SectionTitle";
 import AccentSpan from "./title/AccentSpan";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
+import Image from "next/image";
+
+import { useMediaQuery } from "react-responsive";
 
 const About = () => {
   const { i18n } = useTranslation();
+  const isXl = useMediaQuery({
+    query: "(max-width: 1280px)"
+  });
 
   return (
     <Section bgColor="patternGray" id="ABOUT">
       <DottedOutlineBox lineColor="mainBlue">
-        <div className="mb-2 tracking-tight">
+        <div className="mb-2 tracking-tight relative z-10">
           <SectionTitle color="mainBlue">ABOUT ME</SectionTitle>
           {i18n.language === "ja" ? (
             <>
@@ -45,7 +51,7 @@ const About = () => {
                 働いていました。 <br />
                 (恥ずかしながら、その時はほとんどパソコンを触ることがありませんでした...)
                 <br />
-                元々ウェブ開発の分野に興味があり、コロナのパンデミックを機に勉強をスタート。
+                元々ウェブ開発の分野に興味があり、コロナのパンデミックを機に勉強を開始。
                 <br />
                 2022年には初めてブログサイトをhtmlで作成しました。 <br />
                 この経験を皮切りに開発を学び続け、現在はカナダで活動しております。
@@ -74,13 +80,13 @@ const About = () => {
                 laptop back then...) <br /> However, my fascination with website
                 creation prompted me <br />
                 to step out of my comfort zone and develop my first blog site in
-                2022. <br /> This experience ultimately led me to Canada, where
-                I am now, pursuing my passion for coding.
+                2022. <br /> This experience ultimately led me to Canada, <br />
+                where I am now, pursuing my passion for coding.
               </p>
             </>
           )}
         </div>
-        <div className="flex justify-end mt-auto">
+        <div className="flex justify-end mt-auto relative z-10">
           <div className="flex gap-4 xs:gap-5 items-center  relative">
             <p
               className={`text-mainBlue w-[150%] absolute left-1/2 -translate-x-1/2 -top-5 sm:-top-6 text-center ${hind.className} tracking-tight xs:text-[.7rem] sm:text-[.8rem] text-[.6rem]`}
@@ -118,6 +124,13 @@ const About = () => {
             </Link>
           </div>
         </div>
+        <Image
+          src="/laptop.png"
+          width={isXl ? 200 : 250}
+          height={isXl ? 200 : 250}
+          alt="place pic"
+          className="hidden lg:flex lg:absolute xl:bottom-[6rem] lg:bottom-[5.5rem] lg:right-[6%] xl:right-[10%] z-1"
+        ></Image>
       </DottedOutlineBox>
     </Section>
   );
