@@ -30,7 +30,7 @@ const Button: React.FC<ButtonProps> = ({
         bgColor ? "text-fontFray hover:text-mainBlue" : "text-mainBlue"
       } border-transparent  duration-300 border-2  ${additionalClassName} ${
         currentFont.className
-      } tracking-[0.1px] text-[.8rem] xs:text-[.9rem]`}
+      } tracking-tighter text-[.8rem] xs:text-[.9rem]`}
       disabled={isSubmitting}
       onClick={onClick}
     >

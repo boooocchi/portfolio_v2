@@ -83,7 +83,7 @@ const About = () => {
         <div className="flex justify-end mt-auto">
           <div className="flex gap-4 xs:gap-5 items-center  relative">
             <p
-              className={`text-mainBlue w-[150%] absolute left-1/2 -translate-x-1/2 -top-5 sm:-top-6 text-center ${hind.className} tracking-tighter xs:text-[.7rem] sm:text-[.8rem] text-[.6rem]`}
+              className={`text-mainBlue w-[150%] absolute left-1/2 -translate-x-1/2 -top-5 sm:-top-6 text-center ${hind.className} tracking-tight xs:text-[.7rem] sm:text-[.8rem] text-[.6rem]`}
             >
               \visit me!!/
             </p>
