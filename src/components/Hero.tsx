@@ -121,13 +121,16 @@ const Hero = ({}) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: 0.6 }}
             >
-              <Link
-                href="https://drive.google.com/file/d/1TwaLWXM29RUKLkFSjQZsI6g7E7A9HUKT/view?usp=drive_link"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button additionalClass="ml-3">{t("resume")}</Button>
-              </Link>
+              <Button additionalClass="ml-3">
+                <Link
+                  href="https://drive.google.com/file/d/1TwaLWXM29RUKLkFSjQZsI6g7E7A9HUKT/view?usp=drive_link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center py-1"
+                >
+                  <span className="leading-[100%]">{t("resume")}</span>
+                </Link>
+              </Button>
             </motion.div>
           </div>
         </div>

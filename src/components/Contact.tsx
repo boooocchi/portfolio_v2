@@ -114,7 +114,9 @@ const Contact = () => {
         {t("contact.submitting")}...
       </span>
     ) : (
-      <span className=" text-center px-3 py-2 ">{t("contact.submit")}</span>
+      <span className=" text-center leading-[100%] ">
+        {t("contact.submit")}
+      </span>
     );
   };
 
@@ -226,7 +228,7 @@ const Contact = () => {
               <div className={` w-full`}>
                 <Button
                   isSubmitting={isSubmitting}
-                  additionalClass="w-full mt-7"
+                  additionalClass="w-full mt-7 flex items-center justify-center"
                 >
                   <SubmitButtonText />
                 </Button>

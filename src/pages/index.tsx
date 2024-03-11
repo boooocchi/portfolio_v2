@@ -8,7 +8,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import PcLayout from "@/components/PcLayout";
 import TabletLayout from "@/components/TabletLayout";
-import { GetStaticPropsContext } from "next";
+import { GetServerSidePropsContext } from "next";
 
 export default function Home() {
   const isTablet = useMediaQuery({
@@ -28,8 +28,8 @@ export default function Home() {
   return <main className="bg-mainBlue relative ">{componentStructure}</main>;
 }
 
-export async function getStaticProps(context: GetStaticPropsContext) {
-  const locale = context.locale || "defaultLocale";
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  const locale = context.locale || "en";
   return {
     props: {
       ...(await serverSideTranslations(locale, ["common"]))

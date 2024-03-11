@@ -4,7 +4,7 @@ const path = require("path");
 const nextI18NextConfig = {
   i18n: {
     defaultLocale: "en",
-    locales: ["en", "ja"],
+    locales: ["ja", "en"],
     localePath: path.resolve("./public/locales")
   }
 };

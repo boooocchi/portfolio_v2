@@ -30,7 +30,7 @@ const navItems = [
 ];
 
 type OptionLanguage = {
-  value: "ja" | "en";
+  value: "en" | "ja";
   label: string;
 };
 
