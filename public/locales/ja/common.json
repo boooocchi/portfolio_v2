@@ -7,7 +7,8 @@
   "contact": {
     "submit": "送信",
     "submitting": "送信中",
-    "messagePlaceHolder": "メッセージを入力してください"
+    "messagePlaceHolder": "メッセージを入力してください",
+    "close": "閉じる"
   },
   "work": {
     "swipeMe": "横にスワイプしてください！"

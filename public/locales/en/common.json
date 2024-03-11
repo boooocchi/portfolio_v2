@@ -7,7 +7,8 @@
   "contact": {
     "submit": "SUBMIT",
     "submitting": "SUBMITTING",
-    "messagePlaceHolder": "Please write a message here."
+    "messagePlaceHolder": "Please write a message here.",
+    "close": "CLOSE"
   },
   "work": {
     "swipeMe": "SWIPE ME"

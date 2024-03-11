@@ -11,7 +11,7 @@ import ErrorMessage from "./title/ErrorMessage";
 
 import emailjs from "@emailjs/browser";
 
-import { FieldErrors, FieldValue, FieldValues, useForm } from "react-hook-form";
+import { FieldErrors, useForm } from "react-hook-form";
 import Button from "./button/Button";
 import { useMediaQuery } from "react-responsive";
 import { japanese, hind, rubik } from "../../font_family/font_family";
@@ -72,22 +72,21 @@ const Contact = () => {
   const formRef = useRef(null);
 
   const onSubmit = (data: ContactFormValues) => {
-    if (formRef.current && process.env.NEXT_PUBLIC_EMAIL_JS_SERVICE_ID) {
-      emailjs
-        .sendForm(
-          process.env.NEXT_PUBLIC_EMAIL_JS_SERVICE_ID,
-          "template_2riojqf",
-          formRef.current,
-          process.env.NEXT_PUBLIC_EMAIL_JS_PUBLIC_KEY
-        )
-        .then(
-          (result) => {
-            console.log(result.text);
-          },
-          (error) => {
-            console.log(error.text);
-          }
-        );
+    const serviceId = process.env.NEXT_PUBLIC_EMAIL_JS_SERVICE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_EMAIL_JS_PUBLIC_KEY;
+    if (serviceId && publicKey) {
+      if (formRef.current && process.env.NEXT_PUBLIC_EMAIL_JS_SERVICE_ID) {
+        emailjs
+          .sendForm(serviceId, "template_2riojqf", formRef.current, publicKey)
+          .then(
+            (result) => {
+              console.log(result.text);
+            },
+            (error) => {
+              console.log(error.text);
+            }
+          );
+      }
     }
   };
 
@@ -248,6 +247,7 @@ type MessageModalProps = {
 };
 
 const MessageModal: React.FC<MessageModalProps> = ({ setModal }) => {
+  const { t } = useTranslation("common");
   return (
     <>
       <div>
@@ -268,7 +268,7 @@ const MessageModal: React.FC<MessageModalProps> = ({ setModal }) => {
           Thank you!! <br />
           <span className="text-[.8rem]">Your message successfully sent.</span>
         </h1>
-        <Button onClick={() => setModal(false)}>close</Button>
+        <Button onClick={() => setModal(false)}>{t("contact.close")}</Button>
       </motion.div>
     </>
   );
