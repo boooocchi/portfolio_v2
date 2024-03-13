@@ -10,6 +10,8 @@ import PcLayout from "@/components/PcLayout";
 import TabletLayout from "@/components/TabletLayout";
 import { GetServerSidePropsContext } from "next";
 
+import nextI18nextConfig from "../../next-i18next.config";
+
 export default function Home() {
   const isTablet = useMediaQuery({
     query: "(max-width: 1024px)"
@@ -29,10 +31,15 @@ export default function Home() {
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-  const locale = context.locale || "en";
+  const locale = context.req.cookies["NEXT_LOCALE"];
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["common"]))
+      ...(await serverSideTranslations(
+        locale ?? "en",
+        ["common"],
+        nextI18nextConfig,
+        ["en", "ja"]
+      ))
     }
   };
 }
