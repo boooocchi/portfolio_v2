@@ -24,7 +24,7 @@ const Button: React.FC<ButtonProps> = ({
   const currentFont = i18n.language === "ja" ? japanese : hind;
   return (
     <button
-      className={` hover:outline hover:outline-mainBlue ${
+      className={`flex justify-center items-center hover:outline hover:outline-mainBlue ${
         bgColor ? bgColor : "bg-mainYellow"
       } text-center px-3 py-2 md:px-3 hover:bg-patternGray ${
         bgColor ? "text-fontFray hover:text-mainBlue" : "text-mainBlue"
@@ -34,7 +34,7 @@ const Button: React.FC<ButtonProps> = ({
       disabled={isSubmitting}
       onClick={onClick}
     >
-      {children}
+      <span className="mt-[0.5px]">{children}</span>
     </button>
   );
 };

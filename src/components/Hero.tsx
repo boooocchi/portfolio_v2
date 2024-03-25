@@ -19,7 +19,7 @@ const Hero = ({}) => {
           <div className="w-full md:w-2/3 mb-[7rem] md:mb-0">
             <h1 className="text-mainYellow text-[11vw] sm:text-[4.5rem] md:text-[5.5rem]  tracking-tighter leading-[9vw] sm:leading-[70px] md:leading-[90px] max-xs:mt-10 drop-shadow-lg ">
               <div className={`${rubik.className} flex flex-col`}>
-                <div className="flex ">
+                <div className="flex -ml-1">
                   {heroTitle1.map((letter, index) => {
                     return (
                       <motion.div
@@ -61,7 +61,7 @@ const Hero = ({}) => {
                     );
                   })}
                 </div>
-                <div className="flex">
+                <div className="flex -ml-1">
                   {heroTitle2.map((letter, index) => {
                     return (
                       <motion.div
@@ -106,7 +106,7 @@ const Hero = ({}) => {
               </div>
             </h1>
             <motion.h3
-              className={`${currentFont.className} mt-1 leading-[1rem]  sm:leading-1 md:leading-6 text-fontGray text-[.7rem] sm:text-[1rem] w-[80%] ml-3`}
+              className={`${currentFont.className} mt-1 leading-[1rem]  sm:leading-1 md:leading-6 text-fontGray text-[.7rem] sm:text-[1rem] w-[80%] `}
               initial={{ opacity: 0, y: "70%" }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: 0.6 }}
@@ -121,7 +121,7 @@ const Hero = ({}) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: 0.6 }}
             >
-              <Button additionalClass="ml-3">
+              <Button>
                 <Link
                   href="https://drive.google.com/file/d/1TwaLWXM29RUKLkFSjQZsI6g7E7A9HUKT/view?usp=drive_link"
                   target="_blank"

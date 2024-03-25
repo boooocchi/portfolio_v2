@@ -8,7 +8,6 @@ type AccentSpanProps = {
 
 const AccentSpan: React.FC<AccentSpanProps> = ({ children }) => {
   const { i18n } = useTranslation();
-  console.log(i18n.language);
 
   const fontSize =
     i18n.language === "en"
