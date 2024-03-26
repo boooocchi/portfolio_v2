@@ -175,7 +175,7 @@ const Works = ({ activePageNumber }) => {
 
   React.useEffect(() => {
     let timer: NodeJS.Timeout;
-    if (activePageNumber === 3) {
+    if (activePageNumber === 3 || !activePageNumber) {
       timer = setInterval(() => {
         worksCardSwiperRef.current?.swiper?.mousewheel.enable();
       }, 900);
