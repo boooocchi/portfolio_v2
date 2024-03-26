@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { use, useRef } from "react";
 import Image from "next/image";
 import { japanese, hind, rubik } from "../../font_family/font_family";
 
@@ -6,7 +6,7 @@ import DottedOutlineBox from "./box/DottedOutlineBox";
 import SectionTitle from "./title/SectionTitle";
 
 import { Swiper, SwiperSlide, SwiperRef } from "swiper/react";
-import { EffectCoverflow, Pagination } from "swiper/modules";
+import { EffectCoverflow, Mousewheel, Pagination } from "swiper/modules";
 
 import "swiper/css/effect-coverflow";
 import Section from "./box/Section";
@@ -21,7 +21,7 @@ interface FlippedState {
   [key: number]: boolean;
 }
 
-const Works = () => {
+const Works = ({ activePageNumber }) => {
   const { t } = useTranslation("common");
   const worksCardSwiperRef = useRef<SwiperRef>(null);
   const [isFlipped, setIsFlipped] = React.useState<FlippedState>({
@@ -87,7 +87,7 @@ const Works = () => {
   const SwiperSlides = workCards.map((workCard, index) => {
     return (
       <SwiperSlide
-        className={`swiper-slide work-slide swiper-slide--${index}`}
+        className={`swiper-slide work-slide swiper-slide--${index} my-no-swiping-class`}
         key={index}
       >
         <h2
@@ -173,6 +173,19 @@ const Works = () => {
   const { i18n } = useTranslation();
   const currentFont = i18n.language === "ja" ? japanese : hind;
 
+  React.useEffect(() => {
+    let timer: NodeJS.Timeout;
+    if (activePageNumber === 3) {
+      timer = setInterval(() => {
+        worksCardSwiperRef.current?.swiper?.mousewheel.enable();
+      }, 900);
+    }
+    return () => {
+      clearInterval(timer);
+      worksCardSwiperRef.current?.swiper?.mousewheel.disable();
+    };
+  }, [activePageNumber]);
+
   return (
     <Section bgColor="patternGray" id="WORKS">
       <DottedOutlineBox lineColor="mainBlue">
@@ -186,12 +199,13 @@ const Works = () => {
         </div>
         <div className="flex justify-center items-center  h-[88%] relative ">
           <Swiper
+            nested={true}
             ref={worksCardSwiperRef}
             effect={isSM ? "slide" : "coverflow"}
             className="swiper work-swiper md:-mt-4"
             loop={true}
-            mousewheel={true}
-            modules={[EffectCoverflow]}
+            mousewheel={false}
+            modules={[EffectCoverflow, Mousewheel]}
             centeredSlides={true}
             spaceBetween={isSM ? 10 : isPc ? -400 : -300}
             coverflowEffect={

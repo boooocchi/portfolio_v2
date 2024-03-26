@@ -62,7 +62,7 @@ const PcLayout = () => {
           direction={"vertical"}
           modules={[Pagination, Mousewheel]}
           pagination={pagination}
-          className="vertical-swiper "
+          className="vertical-swiper"
         >
           <SwiperSlide>
             <Hero />
@@ -74,7 +74,7 @@ const PcLayout = () => {
             <Skills />
           </SwiperSlide>
           <SwiperSlide>
-            <Works />
+            <Works activePageNumber={activePageNumber} />
           </SwiperSlide>
           <SwiperSlide>
             <Contact />
