@@ -21,7 +21,9 @@ interface FlippedState {
   [key: number]: boolean;
 }
 
-const Works = ({ activePageNumber }) => {
+const Works: React.FC<{ activePageNumber?: number }> = ({
+  activePageNumber
+}) => {
   const { t } = useTranslation("common");
   const worksCardSwiperRef = useRef<SwiperRef>(null);
   const [isFlipped, setIsFlipped] = React.useState<FlippedState>({
