@@ -44,12 +44,23 @@ const Works: React.FC<{ activePageNumber?: number }> = ({
   });
   const workCards = [
     {
+      title: "Hang in There",
+      description:
+        "A web application where users can store their favorite pieces of clothing and outfits",
+      image: "/Hang_in_there.png",
+      squareImage: "/Hang_in_there_square.png",
+      fallBackImage: "/Hang_in_there_square.png",
+      techStack: ["React", "Next.js", "GraphQL", "Apollo Server", "PostgreSQL"],
+      link: "https://hang-in-there.vercel.app/",
+      githubLink: "https://github.com/boooocchi/Hang_in_There"
+    },
+    {
       title: "SmartRecipe",
       description:
         "A web application that enables users to easily search for recipes using  keywords and refine the search result by ingredients and diet type.",
       image: "/smartRecipe.webp",
       squareImage: "/smartRecipe_square.webp",
-      fallBackImage: "/smartRecipe_square.png",
+      fallBackImage: "/smartResipe_square.png",
       techStack: ["React", "Redux", "Supabase", "Tailwind"],
       link: "https://smart-recipe-pearl.vercel.app/login",
       githubLink: "https://github.com/boooocchi/React-FinalProject"
@@ -64,17 +75,6 @@ const Works: React.FC<{ activePageNumber?: number }> = ({
       techStack: ["React", "Next.js", "Typescript", "PostgreSQL"],
       link: "https://sharexapp.vercel.app/",
       githubLink: "https://github.com/boooocchi/Nodejs-FinalProject"
-    },
-    {
-      title: "Snippets of my hazy-days",
-      description:
-        " A Blog website where users can store their snippets of the daily moments.",
-      image: "/snippets_of_my_hazy_days.webp",
-      squareImage: "/Snippets_of_my_hazy_days_square.webp",
-      fallBackImage: "/Snippets_of_my_hazy_days_square.png",
-      techStack: ["React", "Node.js", "Express", "PostgreSQL"],
-      link: "https://snippetsmyhazydays-boooocchi.vercel.app/",
-      githubLink: "https://github.com/boooocchi/NodejsMidterm"
     }
   ];
 
@@ -112,7 +112,7 @@ const Works: React.FC<{ activePageNumber?: number }> = ({
             />{" "}
           </div>
           <div
-            className="h-[330px] sm:h-[380px] lg:h-[450px] aspect-[4/5] p-4 pt-3  lg:p-7 lg:pt-5 lg:pb-8 flex flex-col   bg-fontGray  card-back mx-auto relative"
+            className="h-[330px] sm:h-[380px] lg:h-[450px] aspect-[4/5] p-4 pt-3  lg:p-7 lg:pt-5 lg:pb-8 flex flex-col   bg-white  card-back mx-auto relative"
             onClick={() => flipCard(index + 1)}
           >
             <span className="h-[10%] w-full flex justify-end mb-0 sm:mb-3">
@@ -138,10 +138,10 @@ const Works: React.FC<{ activePageNumber?: number }> = ({
                 handleImageError(e, workCard.fallBackImage);
               }}
               alt={workCard.title}
-              className=" h-[40%] aspect-[1/1] w-auto mx-auto"
+              className=" h-[50%] aspect-[1/1] w-auto mx-auto"
             />
             <div
-              className={`sm:mt-4 mt-2 flex flex-col justify-between h-[35%] text-mainBlack  ${hind.className} text-[.8rem] w-full leading-[.9rem]`}
+              className={`sm:mt-4 mt-2 flex flex-col justify-between h-[30%] text-mainBlack  ${hind.className} text-[.8rem] w-full leading-[.9rem]`}
             >
               <p className="h-[60%]  max-xs:text-[.7rem]">
                 {workCard.description}
