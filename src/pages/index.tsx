@@ -11,6 +11,7 @@ import TabletLayout from "@/components/TabletLayout";
 import { GetServerSidePropsContext } from "next";
 
 import nextI18nextConfig from "../../next-i18next.config";
+import Head from "next/head";
 
 export default function Home() {
   const isTablet = useMediaQuery({
@@ -27,7 +28,15 @@ export default function Home() {
     }
   }, [isTablet]);
 
-  return <main className="bg-mainBlue relative ">{componentStructure}</main>;
+  return (
+    <div>
+      <Head>
+        <title>My Portfolio</title>
+        <meta name="description" content="Welcome to my online portfolio" />
+      </Head>
+      <main className="bg-mainBlue relative ">{componentStructure}</main>
+    </div>
+  );
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {

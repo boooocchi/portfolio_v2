@@ -6,7 +6,6 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
-          {/* other head elements here */}
         </Head>
         <body>
           <Main />

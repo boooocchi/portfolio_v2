@@ -131,34 +131,3 @@ export const databaseSvgs = [
     name: "MySQL"
   }
 ];
-// frontend:[
-//   html:,
-//   css:,
-//   javascript:,
-//   react:,
-//   typescript:,
-//   nextjs:,
-//   tailwind,
-//   sass,
-
-// ],
-// backend:[
-//   node:,
-//   express,
-//   strapi,
-//   docker,
-//   postgreSQL,
-//   MySQL
-// ],
-// others:[
-//   figma:,
-//   canva:,
-//   jest,
-//   testinglibrary,
-//   yup,
-//   stripe
-//   git,
-//   vercel,
-//   graphql
-// ]
-// }
