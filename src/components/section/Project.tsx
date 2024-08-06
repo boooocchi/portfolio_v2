@@ -40,10 +40,10 @@ const Project: React.FC<{ activePageNumber?: number }> = ({
       title: "Hang in There",
       description:
         "A web application where users can store their favorite pieces of clothing and outfits",
-      image: "/image/work/Hang_in_there.webp",
-      fallBackImage: "/image/work/Hang_in_there.png",
-      squareImage: "/image/work/Hang_in_there_square.webp",
-      fallBackImageSquare: "/image/work/Hang_in_there_square.png",
+      image: "/image/work/hang_in_there.webp",
+      fallBackImage: "/image/work/hang_in_there.png",
+      squareImage: "/image/work/hang_in_there_square.webp",
+      fallBackImageSquare: "/image/work/hang_in_there_square.png",
       techStack: ["React", "Next.js", "GraphQL", "Apollo Server", "PostgreSQL"],
       link: "https://hang-in-there.vercel.app/",
       githubLink: "https://github.com/boooocchi/Hang_in_There"
