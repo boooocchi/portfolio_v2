@@ -66,7 +66,7 @@ const Project: React.FC<{ activePageNumber?: number }> = ({
         "A web application where users can share their English vocabulary and its example sentences.",
       image: "/image/work/sharEx.webp",
       fallBackImage: "/image/work/sharEx.png",
-      squareImage: "/image/work/SharEx_square.webp",
+      squareImage: "/image/work/sharEx_square.webp",
       fallBackImageSquare: "/image/work/SharEx_square.png",
       techStack: ["React", "Next.js", "Typescript", "PostgreSQL"],
       link: "https://sharexapp.vercel.app/",
