@@ -10,6 +10,9 @@ const DottedOutlineBox: React.FC<dottedOutlineBoxProps> = ({
   children,
   lineColor
 }) => {
+  const isSm = useMediaQuery({
+    query: "(max-width: 480px)"
+  });
   const basicClass =
     "flex flex-col sm:h-[620px] h-[650px] w-[90%] sm:w-[85%] outline-dotted lg:mt-[2rem] outline-[2px] sm:py-[2.5rem] sm:px-[3.5rem] p-[1.3rem] relative";
 
@@ -22,17 +25,19 @@ const DottedOutlineBox: React.FC<dottedOutlineBoxProps> = ({
       <motion.div
         initial={{
           opacity: 0,
-          x: `${lineColor === "mainBlue" ? "-5%" : "5%"}`
+          x: `${isSm ? "0%" : lineColor === "mainBlue" ? "-5%" : "5%"}`,
+          y: `${isSm && "10%"}`
         }}
         whileInView={{
           opacity: 1,
           x: "0%",
+          y: "0%",
           transition: {
             duration: 0.5,
             stiffness: 100
           }
         }}
-        viewport={{ once: true, amount: 0.5 }}
+        viewport={{ once: true, amount: 0.4 }}
         className={`${dottedOutlineBoxClassName} ${basicClass}`}
       >
         {children}
