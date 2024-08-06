@@ -96,6 +96,7 @@ const Header: React.FC<HeaderProps> = ({ swiper, activePageNumber }) => {
             {isTablet ? (
               <button
                 className="flex items-center justify-center"
+                aria-label="Open Menu"
                 onClick={(e) => {
                   e.stopPropagation();
                   setIsOpen(true);
@@ -192,7 +193,6 @@ const Header: React.FC<HeaderProps> = ({ swiper, activePageNumber }) => {
 
 export default Header;
 
-// Define the type for the props
 type MenuModalProps = {
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
