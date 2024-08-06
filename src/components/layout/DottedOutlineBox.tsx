@@ -14,7 +14,7 @@ const DottedOutlineBox: React.FC<dottedOutlineBoxProps> = ({
     query: "(max-width: 480px)"
   });
   const basicClass =
-    "flex flex-col sm:h-[620px] h-[650px] w-full sm:w-[85%] sm:outline-dotted lg:mt-[2rem] outline-[2px] sm:py-[2.5rem] sm:px-[3.5rem] p-[1.3rem] relative ml-[10px]";
+    "flex flex-col sm:h-[620px] h-[650px] w-[90%] sm:w-[85%] outline-dotted lg:mt-[2rem] outline-[2px] sm:py-[2.5rem] sm:px-[3.5rem] p-[1.3rem] relative";
 
   let dottedOutlineBoxClassName = "outline-fontGray ";
   if (lineColor === "mainBlue") {
