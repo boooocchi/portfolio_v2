@@ -12,7 +12,7 @@ type HeaderProps = {
 
 const navItems = [
   {
-    name: "ABOUT",
+    name: "ABOUT ME",
     id: 1
   },
   {
@@ -49,14 +49,11 @@ const Header: React.FC<HeaderProps> = ({ swiper, activePageNumber }) => {
   ];
   const { i18n } = useTranslation();
 
-  const [isOptionsVisible, setIsOptionsVisible] = React.useState(false);
+  const [isOptionVisible, setIsOptionVisible] = React.useState(false);
 
-  const toggleLanguageMenuModal = () => {
-    setIsOptionsVisible((prev) => !prev);
-  };
   const handleSwitchLanguage = (value: string) => {
     i18n.changeLanguage(value);
-    setIsOptionsVisible(false);
+    setIsOptionVisible(false);
   };
 
   return (
@@ -76,18 +73,19 @@ const Header: React.FC<HeaderProps> = ({ swiper, activePageNumber }) => {
               }
             }}
             href={!isPC ? "#hero" : ""}
+            aria-label="Go back to Home section"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              stroke-width="2"
+              strokeWidth="2"
               stroke="currentColor"
               className="w-7 h-7 text-white font-extrabold hover:scale-110 duration-300"
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
               />
             </svg>
@@ -107,19 +105,18 @@ const Header: React.FC<HeaderProps> = ({ swiper, activePageNumber }) => {
                   xmlns="http://www.w3.org/2000/svg"
                   fill="white"
                   viewBox="0 0 24 24"
-                  stroke-width="2"
+                  strokeWidth="2"
                   stroke="white"
                   className="w-8 h-8 stroke-white"
                 >
                   <path
-                    stroke-linecap="square"
-                    stroke-linejoin="square"
+                    strokeLinecap="square"
                     d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
                   />
                 </svg>
               </button>
             ) : (
-              <ul className="flex gap-[2rem] items-center">
+              <div className="flex gap-[2rem] items-center">
                 {navItems.map((item) => {
                   let className = "text-white navButton inline-block relative ";
                   if (activePageNumber && item.id === activePageNumber) {
@@ -143,7 +140,10 @@ const Header: React.FC<HeaderProps> = ({ swiper, activePageNumber }) => {
                   );
                 })}
                 <div className="relative">
-                  <button onClick={toggleLanguageMenuModal}>
+                  <button
+                    onClick={() => setIsOptionVisible((prev) => !prev)}
+                    aria-label="Language options"
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 64 64"
@@ -156,31 +156,32 @@ const Header: React.FC<HeaderProps> = ({ swiper, activePageNumber }) => {
                       ></path>
                     </svg>
                   </button>
-                  {isOptionsVisible && (
+                  {isOptionVisible && (
                     <ul className="absolute w-full top-[2.7rem]">
                       {languageOptions.map((option, index) => (
-                        <motion.option
-                          initial={{ opacity: 0, y: "70%" }}
-                          animate={{
-                            opacity:
-                              i18n.language !== option.value ? "0.5" : "1",
-                            y: 0
-                          }}
-                          transition={{ duration: 0.2, delay: index * 0.05 }}
-                          value={option.value}
-                          key={index}
-                          onClick={() => handleSwitchLanguage(option.value)}
-                          className={`underline text-center cursor-pointer ${
-                            i18n.language !== option.value && "opacity-25"
-                          }`}
-                        >
-                          {option.label}
-                        </motion.option>
+                        <li key={index}>
+                          <motion.option
+                            initial={{ opacity: 0, y: "70%" }}
+                            animate={{
+                              opacity:
+                                i18n.language !== option.value ? "0.5" : "1",
+                              y: 0
+                            }}
+                            transition={{ duration: 0.2, delay: index * 0.05 }}
+                            value={option.value}
+                            onClick={() => handleSwitchLanguage(option.value)}
+                            className={`underline text-center cursor-pointer ${
+                              i18n.language !== option.value && "opacity-25"
+                            }`}
+                          >
+                            {option.label}
+                          </motion.option>
+                        </li>
                       ))}
                     </ul>
                   )}
                 </div>
-              </ul>
+              </div>
             )}
           </div>
         </div>
@@ -273,6 +274,7 @@ const MenuModal: React.FC<MenuModalProps> = ({ isOpen, setIsOpen }) => {
   };
   const navLiClassName =
     "text-fontGray  relative drop-shadow-md  hover:text-[2.2rem]  hover:duration-300";
+
   return (
     <>
       <motion.div
@@ -291,6 +293,7 @@ const MenuModal: React.FC<MenuModalProps> = ({ isOpen, setIsOpen }) => {
             }
           }}
           disabled={!isOpen}
+          aria-label="Open menu"
         >
           <motion.svg
             viewBox="0 0 600 600"
@@ -318,33 +321,33 @@ const MenuModal: React.FC<MenuModalProps> = ({ isOpen, setIsOpen }) => {
         </button>
         <motion.ul
           variants={ulVariants}
-          className={`  min-h-[550px] flex flex-col gap-[2rem] items-center justify-center text-[2rem] ${rubik.className} `}
+          className={`min-h-[550px] flex flex-col gap-[2rem] items-center justify-center text-[2rem] ${rubik.className} `}
         >
           {navItems.map((item) => {
             return (
-              <motion.a
-                variants={buttonVariants}
-                key={item.id}
-                className={navLiClassName}
-                href={`#${item.name}`}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setIsOpen(false);
-                }}
-              >
-                {item.name}
-              </motion.a>
+              <li key={item.id}>
+                <motion.a
+                  variants={buttonVariants}
+                  className={navLiClassName}
+                  href={`#${item.name}`}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsOpen(false);
+                  }}
+                >
+                  {item.name}
+                </motion.a>
+              </li>
             );
           })}
-          <motion.div
+          <motion.li
             variants={buttonVariants}
-            className="flex flex-col gap-2 text-[.8rem] items-center text-white
-              "
+            className="flex flex-col gap-2 text-[1rem] items-center text-white"
           >
             <span className="text-white">language</span>
             <div className="flex gap-5">
               <button
-                className={`border  border-white px-2 py-1 ${enButtonBgColor} `}
+                className={`border border-white px-2 py-1 ${enButtonBgColor} `}
                 onClick={() => {
                   i18n.changeLanguage("en");
                 }}
@@ -360,7 +363,7 @@ const MenuModal: React.FC<MenuModalProps> = ({ isOpen, setIsOpen }) => {
                 JP
               </button>
             </div>
-          </motion.div>
+          </motion.li>
         </motion.ul>
       </motion.div>
     </>

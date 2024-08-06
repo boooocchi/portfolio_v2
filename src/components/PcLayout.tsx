@@ -2,14 +2,13 @@ import React, { useEffect } from "react";
 import Image from "next/image";
 import Hero from "@/components/Hero";
 import Header from "@/components/Header";
-import About from "@/components/About";
+import AboutMe from "@/components/AboutMe";
 import Contact from "@/components/Contact";
 import Skills from "@/components/Skills";
 
 import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import { Mousewheel } from "swiper/modules";
 
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
@@ -68,7 +67,7 @@ const PcLayout = () => {
             <Hero />
           </SwiperSlide>
           <SwiperSlide>
-            <About />
+            <AboutMe />
           </SwiperSlide>
           <SwiperSlide>
             <Skills />

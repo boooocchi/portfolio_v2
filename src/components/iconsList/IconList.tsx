@@ -37,7 +37,7 @@ const IconList: React.FC<iconLiProps> = ({
           >
             <path d={path} />
             {path2 && <path d={path2} opacity="0.405" />}
-            {path3 && <path d={path3} fill-rule="nonzero" opacity="0.405" />}
+            {path3 && <path d={path3} fillRule="nonzero" opacity="0.405" />}
           </svg>
         </div>
         <div className="text-[.6rem] sm:text-[.7rem] text-fontGray text-center">

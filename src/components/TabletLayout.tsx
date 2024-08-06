@@ -2,7 +2,7 @@ import React from "react";
 import Header from "./Header";
 import VerticalLink from "./VerticalLink";
 import Hero from "./Hero";
-import About from "./About";
+import AboutMe from "./AboutMe";
 import Skills from "./Skills";
 import Works from "./Works";
 import Contact from "./Contact";
@@ -13,7 +13,7 @@ const TabletLayout = () => {
       <VerticalLink />
       <Header />
       <Hero />
-      <About />
+      <AboutMe />
       <Skills />
       <Works />
       <Contact />

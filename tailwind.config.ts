@@ -34,11 +34,8 @@ const config: Config = {
       // => @media (min-width: 1280px) { ... }
     },
     backgroundImage: {
-      "hero_bg_image": "url('/hero.webp')",
-      "hero_bg_image_tablet": "url('/hero_tb.webp')",
-      "snipperts_bg_image": "url('/snipperts_of_my_hazy_days.webp')",
-      "sharEx_bg_image": "url('/sharEx.webp')",
-      "smartRecipe_bg_image": "url('/smartRecipe.webp')"
+      "hero_bg_image": "url('/image/hero/hero.webp')",
+      "hero_bg_image_tablet": "url('/image/hero/hero_tb.webp')"
     }
   },
   plugins: []

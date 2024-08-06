@@ -39,12 +39,6 @@ body {
   margin: 0 auto;
 }
 
-/* @media (max-width: 1023px) {
-  .vertical-swiper {
-    height: 2500px !important;
-  }
-} */
-
 /* pagenation dots */
 /*create the outer border line for active bullet*/
 @keyframes rotate {

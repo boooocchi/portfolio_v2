@@ -6,14 +6,13 @@ import DottedOutlineBox from "./box/DottedOutlineBox";
 import SectionTitle from "./title/SectionTitle";
 
 import { Swiper, SwiperSlide, SwiperRef } from "swiper/react";
-import { EffectCoverflow, Mousewheel, Pagination } from "swiper/modules";
+import { EffectCoverflow, Mousewheel } from "swiper/modules";
 
 import "swiper/css/effect-coverflow";
 import Section from "./box/Section";
 
 import ReactCardFlip from "react-card-flip";
 import Button from "./button/Button";
-import { Span } from "next/dist/trace";
 import Link from "next/link";
 import { useMediaQuery } from "react-responsive";
 import { useTranslation } from "next-i18next";
@@ -26,6 +25,55 @@ const Works: React.FC<{ activePageNumber?: number }> = ({
 }) => {
   const { t } = useTranslation("common");
   const worksCardSwiperRef = useRef<SwiperRef>(null);
+
+  //useMediaQUery
+  const isPc = useMediaQuery({
+    query: "(min-width: 1025px)"
+  });
+
+  const isSM = useMediaQuery({
+    query: "(max-width:640px)"
+  });
+
+  const workCards = [
+    {
+      title: "Hang in There",
+      description:
+        "A web application where users can store their favorite pieces of clothing and outfits",
+      image: "/image/work/Hang_in_there.webp",
+      fallBackImage: "/image/work/Hang_in_there.png",
+      squareImage: "/image/work/Hang_in_there_square.webp",
+      fallBackImageSquare: "/image/work/Hang_in_there_square.png",
+      techStack: ["React", "Next.js", "GraphQL", "Apollo Server", "PostgreSQL"],
+      link: "https://hang-in-there.vercel.app/",
+      githubLink: "https://github.com/boooocchi/Hang_in_There"
+    },
+    {
+      title: "SmartRecipe",
+      description:
+        "A web application that enables users to easily search for recipes using  keywords and refine the search result by ingredients and diet type.",
+      image: "/image/work/smartRecipe.webp",
+      fallBackImage: "/image/work/smartRecipe.png",
+      squareImage: "/image/work/smartRecipe_square.webp",
+      fallBackImageSquare: "/image/work/smartResipe_square.png",
+      techStack: ["React", "Redux", "Supabase", "Tailwind"],
+      link: "https://smart-recipe-pearl.vercel.app/login",
+      githubLink: "https://github.com/boooocchi/React-FinalProject"
+    },
+    {
+      title: "SharEx.",
+      description:
+        "A web application where users can share their English vocabulary and its example sentences.",
+      image: "/image/work/sharEx.webp",
+      fallBackImage: "/image/work/sharEx.png",
+      squareImage: "/image/work/SharEx_square.webp",
+      fallBackImageSquare: "/image/work/SharEx_square.png",
+      techStack: ["React", "Next.js", "Typescript", "PostgreSQL"],
+      link: "https://sharexapp.vercel.app/",
+      githubLink: "https://github.com/boooocchi/Nodejs-FinalProject"
+    }
+  ];
+
   const [isFlipped, setIsFlipped] = React.useState<FlippedState>({
     1: false,
     2: false,
@@ -35,48 +83,6 @@ const Works: React.FC<{ activePageNumber?: number }> = ({
   const flipCard = (index: number) => {
     setIsFlipped((prev) => ({ ...prev, [index]: !prev[index] }));
   };
-  const isPc = useMediaQuery({
-    query: "(min-width: 1025px)"
-  });
-
-  const isSM = useMediaQuery({
-    query: "(max-width:640px)"
-  });
-  const workCards = [
-    {
-      title: "Hang in There",
-      description:
-        "A web application where users can store their favorite pieces of clothing and outfits",
-      image: "/Hang_in_there.png",
-      squareImage: "/Hang_in_there_square.png",
-      fallBackImage: "/Hang_in_there_square.png",
-      techStack: ["React", "Next.js", "GraphQL", "Apollo Server", "PostgreSQL"],
-      link: "https://hang-in-there.vercel.app/",
-      githubLink: "https://github.com/boooocchi/Hang_in_There"
-    },
-    {
-      title: "SmartRecipe",
-      description:
-        "A web application that enables users to easily search for recipes using  keywords and refine the search result by ingredients and diet type.",
-      image: "/smartRecipe.webp",
-      squareImage: "/smartRecipe_square.webp",
-      fallBackImage: "/smartResipe_square.png",
-      techStack: ["React", "Redux", "Supabase", "Tailwind"],
-      link: "https://smart-recipe-pearl.vercel.app/login",
-      githubLink: "https://github.com/boooocchi/React-FinalProject"
-    },
-    {
-      title: "SharEx.",
-      description:
-        "A web application where users can share their English vocabulary and its example sentences.",
-      image: "/sharEx.webp",
-      squareImage: "/SharEx_square.webp",
-      fallBackImage: "/SharEx_square.png",
-      techStack: ["React", "Next.js", "Typescript", "PostgreSQL"],
-      link: "https://sharexapp.vercel.app/",
-      githubLink: "https://github.com/boooocchi/Nodejs-FinalProject"
-    }
-  ];
 
   const handleImageError = (
     e: React.SyntheticEvent<HTMLImageElement, Event>,
@@ -102,17 +108,23 @@ const Works: React.FC<{ activePageNumber?: number }> = ({
           isFlipped={isFlipped[index + 1]}
         >
           <div
-            className="h-[330px] sm:h-[380px] lg:h-[450px]  flex flex-col items-center justify-start mt-0 card mx-auto "
+            className="h-[330px] sm:h-[380px] lg:h-[450px]  flex flex-col aspect-[4/5] items-center justify-start mt-0 card mx-auto cursor-pointer"
             onClick={() => flipCard(index + 1)}
           >
-            <img
-              src={workCard.image}
-              alt={workCard.title}
-              className="h-full sm:h-[95%] w-auto hover:after:bg-[rgba(0,0,0,0.3)"
-            />{" "}
+            <div className="h-full w-full hover:after:bg-[rgba(0,0,0,0.3) relative">
+              <Image
+                src={workCard.image}
+                alt={workCard.title}
+                style={{ objectFit: "fill" }}
+                fill={true}
+                onError={(e) => {
+                  handleImageError(e, workCard.fallBackImage);
+                }}
+              />
+            </div>
           </div>
           <div
-            className="h-[330px] sm:h-[380px] lg:h-[450px] aspect-[4/5] p-4 pt-3  lg:p-7 lg:pt-5 lg:pb-8 flex flex-col   bg-white  card-back mx-auto relative"
+            className="h-[330px] sm:h-[380px] lg:h-[450px] aspect-[4/5] p-4 pt-3 lg:p-7 lg:pt-5 lg:pb-8 flex flex-col bg-white  mx-auto relative cursor-pointer"
             onClick={() => flipCard(index + 1)}
           >
             <span className="h-[10%] w-full flex justify-end mb-0 sm:mb-3">
@@ -121,6 +133,7 @@ const Works: React.FC<{ activePageNumber?: number }> = ({
                 onClick={(e) => e.stopPropagation()}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`Visit the repository of ${workCard.title}`}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -132,14 +145,18 @@ const Works: React.FC<{ activePageNumber?: number }> = ({
                 </svg>
               </Link>
             </span>
-            <img
-              src={`${workCard.squareImage}`}
-              onError={(e) => {
-                handleImageError(e, workCard.fallBackImage);
-              }}
-              alt={workCard.title}
-              className=" h-[50%] aspect-[1/1] w-auto mx-auto"
-            />
+            <div className="h-[50%] aspect-[1/1] w-auto mx-auto relative">
+              <Image
+                src={workCard.squareImage}
+                style={{ objectFit: "fill" }}
+                onError={(e) => {
+                  handleImageError(e, workCard.fallBackImage);
+                }}
+                alt={workCard.title}
+                fill={true}
+              />
+            </div>
+
             <div
               className={`sm:mt-4 mt-2 flex flex-col justify-between h-[30%] text-mainBlack  ${hind.className} text-[.8rem] w-full leading-[.9rem]`}
             >
@@ -232,8 +249,9 @@ const Works: React.FC<{ activePageNumber?: number }> = ({
           </Swiper>
           <div className="hover:scale-125  absolute -left-3 sm:left-[5%] lg:left-[15%] top-[45%] z-10 bg-mainBlue rounded-sm p-1 flex justify-center items-center duration-100">
             <button
-              className=" hover:transform animate-transform drop-shadow-2xl"
+              className="hover:transform animate-transform drop-shadow-2xl"
               onClick={() => worksCardSwiperRef?.current?.swiper?.slidePrev()}
+              aria-label="Previous card"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -249,6 +267,7 @@ const Works: React.FC<{ activePageNumber?: number }> = ({
             <button
               className="hover:transform hover:scale-115 animate-transform duration-100 drop-shadow-2xl"
               onClick={() => worksCardSwiperRef?.current?.swiper?.slideNext()}
+              aria-label="Next card"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

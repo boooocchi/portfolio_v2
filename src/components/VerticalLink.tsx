@@ -9,22 +9,24 @@ type VerticalLinkProps = {
 
 const VerticalLink: React.FC<VerticalLinkProps> = ({ activePageNumber }) => {
   const isTablet = useMediaQuery({
-    query: "(max-width: 820px)"
+    query: "(max-width: 820px)" //doesn't include 820px
   });
-  const navClass = isTablet
+  const verticalLinkBaseClass = "fixed left-5 z-[999] duration-300";
+  const additionalClass = isTablet
     ? "hidden"
     : activePageNumber === 0
-    ? "fixed left-5 bottom-10 z-[999] invisible opacity-0 duration-300"
-    : "fixed left-5 bottom-5 z-[999] duration-300 mix-blend-difference";
+    ? "bottom-10 invisible opacity-0"
+    : "bottom-5 mix-blend-difference";
 
   return (
-    <div className={navClass}>
+    <div className={`${verticalLinkBaseClass} ${additionalClass}`}>
       <div className="flex flex-col items-center justify-center gap-4">
         <span className="h-[5rem] w-[1px] bg-white"></span>
         <Link
           href="https://github.com/boooocchi"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Kota Ito's Github Profile"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -40,6 +42,7 @@ const VerticalLink: React.FC<VerticalLinkProps> = ({ activePageNumber }) => {
           href="https://www.linkedin.com/in/kota-ito-%EF%BC%A0041212/"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Kota Ito's LinkedIn Profile"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -32,7 +32,11 @@ export default function Home() {
     <div>
       <Head>
         <title>My Portfolio</title>
-        <meta name="description" content="Welcome to my online portfolio" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          name="description"
+          content="Welcome to the online portfolio of Kota Ito, a professional front-end developer specializing in Typescript and React.js. Interested in collaborating? Check out my projects!"
+        />
       </Head>
       <main className="bg-mainBlue relative ">{componentStructure}</main>
     </div>

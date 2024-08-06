@@ -13,7 +13,7 @@ import Image from "next/image";
 
 import { useMediaQuery } from "react-responsive";
 
-const About = () => {
+const AboutMe = () => {
   const { i18n } = useTranslation();
   const isXl = useMediaQuery({
     query: "(max-width: 1280px)"
@@ -97,6 +97,7 @@ const About = () => {
               href="https://www.linkedin.com/in/kota-ito-%EF%BC%A0041212/"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Kota Ito's LinkedIn Profile"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -112,6 +113,7 @@ const About = () => {
               href="https://github.com/boooocchi"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Kota Ito's GitHub Profile"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -125,7 +127,7 @@ const About = () => {
           </div>
         </div>
         <Image
-          src="/laptop.png"
+          src="/image/aboutme/laptop.png"
           width={isXl ? 200 : 250}
           height={isXl ? 200 : 250}
           alt="place pic"
@@ -136,4 +138,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default AboutMe;
