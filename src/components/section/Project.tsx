@@ -39,7 +39,7 @@ const Project: React.FC<{ activePageNumber?: number }> = ({
     {
       title: "Hang in There",
       description:
-        "A web application where users can store their favorite pieces of clothing and outfits",
+        "A web application where users can store their favorite pieces of clothing and outfits.",
       image: "/image/work/hang_in_there.webp",
       fallBackImage: "/image/work/hang_in_there.png",
       squareImage: "/image/work/hang_in_there_square.webp",
@@ -127,7 +127,7 @@ const Project: React.FC<{ activePageNumber?: number }> = ({
             className="h-[330px] sm:h-[380px] lg:h-[450px] aspect-[4/5] p-4 pt-3 lg:p-7 lg:pt-5 lg:pb-8 flex flex-col bg-white  mx-auto relative cursor-pointer"
             onClick={() => flipCard(index + 1)}
           >
-            <span className="h-[10%] w-full flex justify-end mb-0 sm:mb-3">
+            <span className="h-[10%] w-full flex justify-end mb-0 sm:mb-1">
               <Link
                 href={workCard.githubLink}
                 onClick={(e) => e.stopPropagation()}
@@ -145,7 +145,7 @@ const Project: React.FC<{ activePageNumber?: number }> = ({
                 </svg>
               </Link>
             </span>
-            <div className="h-[50%] aspect-[1/1] w-auto mx-auto relative">
+            <div className="h-[40%] aspect-[1/1] w-auto mx-auto relative mb-1">
               <Image
                 src={workCard.squareImage}
                 style={{ objectFit: "fill" }}
@@ -158,22 +158,22 @@ const Project: React.FC<{ activePageNumber?: number }> = ({
             </div>
 
             <div
-              className={`sm:mt-4 mt-2 flex flex-col justify-between h-[30%] text-mainBlack  ${hind.className} text-[.8rem] w-full leading-[.9rem]`}
+              className={`sm:mt-2 mt-1 flex flex-col h-[50%] text-mainBlack justify-between ${hind.className} w-full leading-tight`}
             >
-              <p className="h-[60%]  max-xs:text-[.7rem]">
-                {workCard.description}
-              </p>
-              <br />
-              <h3 className="mb-3 text-[.7rem]">
-                tech stach:
-                <br />
-                {workCard.techStack.map((tech, index) => (
-                  <span key={index} className="text-[.7rem] xs:text-[.8rem]">
-                    {tech}
-                    {index !== workCard.techStack.length - 1 && ","}
-                  </span>
-                ))}
-              </h3>
+              <p className="max-xs:text-[.9rem]">{workCard.description}</p>
+              <div className="mb-2 sm:mb-1 text-[.8rem] flex flex-col gap-1">
+                <span className={isSM ? "hidden" : "flex"}>-tech stach-</span>
+                <div className="whitespace-normal w-full">
+                  {workCard.techStack.map((tech, index) => (
+                    <span
+                      key={index}
+                      className="inline-block text-center text-[.8rem] bg-patternGray p-1 px-2 mb-1 mr-2"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
             <Link
               href={workCard.link}

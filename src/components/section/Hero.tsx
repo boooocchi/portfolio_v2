@@ -106,7 +106,7 @@ const Hero = ({}) => {
               </div>
             </h1>
             <motion.h2
-              className={`${currentFont.className} mt-1 leading-[1rem]  sm:leading-1 md:leading-6 text-fontGray text-[.7rem] sm:text-[1rem] w-full sm:mb-10`}
+              className={`${currentFont.className} mt-1 leading-[1rem]  sm:leading-1 md:leading-6 text-fontGray text-[.8rem] sm:text-[1rem] w-full sm:mb-10`}
               initial={{ opacity: 0, y: "70%" }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: 0.6 }}
