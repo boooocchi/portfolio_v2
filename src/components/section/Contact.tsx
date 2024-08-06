@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
-import DottedOutlineBox from "../box/DottedOutlineBox";
-import Section from "../box/Section";
+import DottedOutlineBox from "../layout/DottedOutlineBox";
+import Section from "../layout/Section";
 
 import SectionTitle from "../title/SectionTitle";
 import Input from "../input/Input";

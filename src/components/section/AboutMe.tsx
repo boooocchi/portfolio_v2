@@ -1,7 +1,7 @@
 import React from "react";
 
-import DottedOutlineBox from "../box/DottedOutlineBox";
-import Section from "../box/Section";
+import DottedOutlineBox from "../layout/DottedOutlineBox";
+import Section from "../layout/Section";
 
 import { hind, japanese } from "../../../font_family/font_family";
 import SectionTitle from "../title/SectionTitle";
@@ -30,11 +30,10 @@ const AboutMe = () => {
                 className={`${japanese.className} leading-[1.5] lg:text-[1.1rem]   sm:text-[1rem] text-[0.9rem]  mb-5 text-mainBlue`}
               >
                 フロントエンドデベロッパーとして、日々勉強に励んでおります。
-                <br />
                 <AccentSpan>React</AccentSpan> と
                 <AccentSpan>Typescript</AccentSpan>が主要言語です。
                 <br />
-                <AccentSpan>素早い問題解決能力</AccentSpan>
+                <AccentSpan>高い問題解決能力</AccentSpan>
                 と、チーム環境で生きる
                 <AccentSpan>
                   高いコミュニケーション能力
@@ -45,15 +44,15 @@ const AboutMe = () => {
               <p
                 className={`${japanese.className} leading-[1.5] lg:text-[1.1rem]   sm:text-[1rem] text-[0.9rem]  mb-5 text-mainBlue`}
               >
-                エンジニアの勉強を始める以前は、
-                <br />
-                日本の伝統ある会社で<AccentSpan>営業として</AccentSpan>
+                エンジニアの勉強を始める以前は、 日本の伝統ある会社で
+                <AccentSpan>営業として</AccentSpan>
                 働いていました。 <br />
                 (恥ずかしながら、その時はほとんどパソコンを触ることがありませんでした...)
                 <br />
                 元々ウェブ開発の分野に興味があり、コロナのパンデミックを機に勉強を開始。
                 <br />
-                2022年には初めてブログサイトをhtmlで作成しました。 <br />
+                2022年には初めてブログサイトをhtmlで作成しました。
+                <br className="hidden sm:flex" />
                 この経験を皮切りに開発を学び続け、現在はカナダで活動しております。
               </p>
             </>

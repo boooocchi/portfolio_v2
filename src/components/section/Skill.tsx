@@ -1,7 +1,7 @@
 import React from "react";
 
-import DottedOutlineBox from "../box/DottedOutlineBox";
-import Section from "../box/Section";
+import DottedOutlineBox from "../layout/DottedOutlineBox";
+import Section from "../layout/Section";
 
 import { hind, rubik } from "../../../font_family/font_family";
 import SectionTitle from "../title/SectionTitle";
