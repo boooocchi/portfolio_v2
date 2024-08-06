@@ -1,20 +1,20 @@
 import React, { useRef } from "react";
-import DottedOutlineBox from "./box/DottedOutlineBox";
-import Section from "./box/Section";
+import DottedOutlineBox from "../box/DottedOutlineBox";
+import Section from "../box/Section";
 
-import SectionTitle from "./title/SectionTitle";
-import Input from "./input/Input";
+import SectionTitle from "../title/SectionTitle";
+import Input from "../input/Input";
 
 import { yupResolver } from "@hookform/resolvers/yup";
-import { contactSchema } from "../../validation/contactValidation";
-import ErrorMessage from "./title/ErrorMessage";
+import { contactSchema } from "../../../validation/contactValidation";
+import ErrorMessage from "../title/ErrorMessage";
 
 import emailjs from "@emailjs/browser";
 
 import { FieldErrors, useForm } from "react-hook-form";
-import Button from "./button/Button";
+import Button from "../button/Button";
 import { useMediaQuery } from "react-responsive";
-import { japanese, hind, rubik } from "../../font_family/font_family";
+import { japanese, hind, rubik } from "../../../font_family/font_family";
 import { motion } from "framer-motion";
 import { useTranslation } from "next-i18next";
 

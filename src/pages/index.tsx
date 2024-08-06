@@ -6,8 +6,8 @@ import { useMediaQuery } from "react-responsive";
 
 import "swiper/css";
 import "swiper/css/pagination";
-import PcLayout from "@/components/PcLayout";
-import TabletLayout from "@/components/TabletLayout";
+import PcLayout from "@/components/layout/PcLayout";
+import TabletLayout from "@/components/layout/TabletLayout";
 import { GetServerSidePropsContext } from "next";
 
 import nextI18nextConfig from "../../next-i18next.config";

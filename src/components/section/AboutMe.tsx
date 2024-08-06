@@ -1,12 +1,12 @@
 import React from "react";
 
-import DottedOutlineBox from "./box/DottedOutlineBox";
-import Section from "./box/Section";
+import DottedOutlineBox from "../box/DottedOutlineBox";
+import Section from "../box/Section";
 
-import { hind, japanese } from "../../font_family/font_family";
-import SectionTitle from "./title/SectionTitle";
+import { hind, japanese } from "../../../font_family/font_family";
+import SectionTitle from "../title/SectionTitle";
 
-import AccentSpan from "./title/AccentSpan";
+import AccentSpan from "../title/AccentSpan";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
 import Image from "next/image";

@@ -1,6 +1,6 @@
 import React from "react";
-import { rubik, hind, japanese } from "../../font_family/font_family";
-import Button from "./button/Button";
+import { rubik, hind, japanese } from "../../../font_family/font_family";
+import Button from "../button/Button";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useTranslation } from "next-i18next";

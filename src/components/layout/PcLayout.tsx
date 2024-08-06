@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
-import Hero from "@/components/Hero";
-import Header from "@/components/Header";
-import AboutMe from "@/components/AboutMe";
-import Contact from "@/components/Contact";
-import Skills from "@/components/Skills";
+import Hero from "@/components/section/Hero";
+import Header from "@/components/layout/Header";
+import AboutMe from "@/components/section/AboutMe";
+import Contact from "@/components/section/Contact";
+import Skill from "@/components/section/Skill";
 
 import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import { Mousewheel } from "swiper/modules";
@@ -12,7 +12,7 @@ import { Mousewheel } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
-import Works from "@/components/Works";
+import Project from "@/components/section/Project";
 import VerticalLink from "@/components/VerticalLink";
 
 const PcLayout = () => {
@@ -70,10 +70,10 @@ const PcLayout = () => {
             <AboutMe />
           </SwiperSlide>
           <SwiperSlide>
-            <Skills />
+            <Skill />
           </SwiperSlide>
           <SwiperSlide>
-            <Works activePageNumber={activePageNumber} />
+            <Project activePageNumber={activePageNumber} />
           </SwiperSlide>
           <SwiperSlide>
             <Contact />

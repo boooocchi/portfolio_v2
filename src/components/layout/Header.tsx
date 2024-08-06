@@ -1,5 +1,5 @@
 import React from "react";
-import { hind, rubik } from "../../font_family/font_family";
+import { hind, rubik } from "../../../font_family/font_family";
 import { useMediaQuery } from "react-responsive";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -16,11 +16,11 @@ const navItems = [
     id: 1
   },
   {
-    name: "SKILLS",
+    name: "SKILL",
     id: 2
   },
   {
-    name: "WORKS",
+    name: "PROJECT",
     id: 3
   },
   {

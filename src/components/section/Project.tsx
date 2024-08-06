@@ -1,18 +1,18 @@
 import React, { use, useRef } from "react";
 import Image from "next/image";
-import { japanese, hind, rubik } from "../../font_family/font_family";
+import { japanese, hind, rubik } from "../../../font_family/font_family";
 
-import DottedOutlineBox from "./box/DottedOutlineBox";
-import SectionTitle from "./title/SectionTitle";
+import DottedOutlineBox from "../box/DottedOutlineBox";
+import SectionTitle from "../title/SectionTitle";
 
 import { Swiper, SwiperSlide, SwiperRef } from "swiper/react";
 import { EffectCoverflow, Mousewheel } from "swiper/modules";
 
 import "swiper/css/effect-coverflow";
-import Section from "./box/Section";
+import Section from "../box/Section";
 
 import ReactCardFlip from "react-card-flip";
-import Button from "./button/Button";
+import Button from "../button/Button";
 import Link from "next/link";
 import { useMediaQuery } from "react-responsive";
 import { useTranslation } from "next-i18next";
@@ -20,7 +20,7 @@ interface FlippedState {
   [key: number]: boolean;
 }
 
-const Works: React.FC<{ activePageNumber?: number }> = ({
+const Project: React.FC<{ activePageNumber?: number }> = ({
   activePageNumber
 }) => {
   const { t } = useTranslation("common");
@@ -206,10 +206,10 @@ const Works: React.FC<{ activePageNumber?: number }> = ({
   }, [activePageNumber]);
 
   return (
-    <Section bgColor="patternGray" id="WORKS">
+    <Section bgColor="patternGray" id="PROJECT">
       <DottedOutlineBox lineColor="mainBlue">
         <div className="flex  items-center">
-          <SectionTitle color="mainBlue">Works</SectionTitle>{" "}
+          <SectionTitle color="mainBlue">PROJECT</SectionTitle>{" "}
           <p
             className={`${currentFont.className} text-mainBlue ml-5 sm:text-[.9rem] text-[.7rem] animate-bounce`}
           >
@@ -286,4 +286,4 @@ const Works: React.FC<{ activePageNumber?: number }> = ({
   );
 };
 
-export default Works;
+export default Project;

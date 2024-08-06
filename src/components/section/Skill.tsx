@@ -1,22 +1,22 @@
 import React from "react";
 
-import DottedOutlineBox from "./box/DottedOutlineBox";
-import Section from "./box/Section";
+import DottedOutlineBox from "../box/DottedOutlineBox";
+import Section from "../box/Section";
 
-import { hind, rubik } from "../../font_family/font_family";
-import SectionTitle from "./title/SectionTitle";
-import Subtitle from "./title/Subtitle";
+import { hind, rubik } from "../../../font_family/font_family";
+import SectionTitle from "../title/SectionTitle";
+import Subtitle from "../title/Subtitle";
 
 import {
   databaseSvgs,
   frameworkLibrarySvgs,
   languageSvgs
-} from "../../public/icons/svgs";
-import IconList from "./iconsList/IconList";
+} from "../../../public/icons/svgs";
+import IconList from "../iconsList/IconList";
 
-const Skills = () => {
+const Skill = () => {
   return (
-    <Section bgColor="mainBlue" id="SKILLS">
+    <Section bgColor="mainBlue" id="SKILL">
       <DottedOutlineBox>
         <SectionTitle color="mainYellow">My Skills</SectionTitle>
         <div className="flex flex-col md:grid md:grid-cols-[60%_40%]  gap-x-[5%] w-full my-5 md:mb-10">
@@ -90,4 +90,4 @@ const Skills = () => {
   );
 };
 
-export default Skills;
+export default Skill;
