@@ -22,24 +22,30 @@ const DottedOutlineBox: React.FC<dottedOutlineBoxProps> = ({
   }
   return (
     <>
-      <motion.div
-        initial={{
-          opacity: 0,
-          x: `${isSm ? "0%" : lineColor === "mainBlue" ? "-5%" : "5%"}`
-        }}
-        whileInView={{
-          opacity: 1,
-          x: "0%",
-          transition: {
-            duration: 0.3,
-            stiffness: 100
-          }
-        }}
-        viewport={{ once: true, amount: 0.4 }}
-        className={`${dottedOutlineBoxClassName} ${basicClass}`}
-      >
-        {children}
-      </motion.div>
+      {isSm ? (
+        <div className={`${dottedOutlineBoxClassName} ${basicClass}`}>
+          {children}
+        </div>
+      ) : (
+        <motion.div
+          initial={{
+            opacity: 0,
+            x: `${lineColor === "mainBlue" ? "-5%" : "5%"}`
+          }}
+          whileInView={{
+            opacity: 1,
+            x: "0%",
+            transition: {
+              duration: 0.5,
+              stiffness: 100
+            }
+          }}
+          viewport={{ once: true, amount: 0.4 }}
+          className={`${dottedOutlineBoxClassName} ${basicClass}`}
+        >
+          {children}
+        </motion.div>
+      )}
     </>
   );
 };
