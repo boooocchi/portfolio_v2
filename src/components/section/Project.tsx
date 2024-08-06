@@ -57,7 +57,7 @@ const Project: React.FC<{ activePageNumber?: number }> = ({
         <div className="flex  items-center">
           <SectionTitle color="mainBlue">PROJECT</SectionTitle>{" "}
           <p
-            className={`${currentFont.className} text-mainBlue ml-5 sm:text-[.9rem] text-[.7rem] animate-bounce`}
+            className={`${currentFont.className} text-mainBlue ml-5 sm:text-[.9rem] text-[.8rem] animate-bounce`}
           >
             &quot;{t("work.swipeMe")}&quot;
           </p>

@@ -26,14 +26,14 @@ const DottedOutlineBox: React.FC<dottedOutlineBoxProps> = ({
         initial={{
           opacity: 0,
           x: `${isSm ? "0%" : lineColor === "mainBlue" ? "-5%" : "5%"}`,
-          y: `${isSm && "10%"}`
+          y: `${isSm && "5%"}`
         }}
         whileInView={{
           opacity: 1,
           x: "0%",
           y: "0%",
           transition: {
-            duration: 0.5,
+            duration: 0.3,
             stiffness: 100
           }
         }}
