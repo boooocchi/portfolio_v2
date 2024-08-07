@@ -104,6 +104,7 @@ export const useSwiperPropjectSlides = () => {
                   onError={(e) => {
                     handleImageError(e, workCard.fallBackImage);
                   }}
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -143,6 +144,7 @@ export const useSwiperPropjectSlides = () => {
                   }}
                   alt={workCard.title}
                   fill={true}
+                  loading="lazy"
                 />
               </div>
 
