@@ -13,7 +13,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import Project from "@/components/section/Project";
-import VerticalLink from "@/components/VerticalLink";
+import VerticalLink from "@/components/button/VerticalLink";
 
 const PcLayout = () => {
   const [activePageNumber, setActivePageNumber] = React.useState(0);
