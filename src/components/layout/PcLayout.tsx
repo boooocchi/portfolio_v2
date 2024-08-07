@@ -1,9 +1,7 @@
-import React, { useEffect } from "react";
-import Image from "next/image";
+import React, { Suspense } from "react";
 import Hero from "@/components/section/Hero";
 import Header from "@/components/layout/Header";
 import AboutMe from "@/components/section/AboutMe";
-import Contact from "@/components/section/Contact";
 import Skill from "@/components/section/Skill";
 
 import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
@@ -12,8 +10,10 @@ import { Mousewheel } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
-import Project from "@/components/section/Project";
 import VerticalLink from "@/components/button/VerticalLink";
+
+const Contact = React.lazy(() => import("@/components/section/Contact"));
+const Project = React.lazy(() => import("@/components/section/Project"));
 
 const PcLayout = () => {
   const [activePageNumber, setActivePageNumber] = React.useState(0);
@@ -76,7 +76,9 @@ const PcLayout = () => {
             <Project activePageNumber={activePageNumber} />
           </SwiperSlide>
           <SwiperSlide>
-            <Contact />
+            <Suspense fallback={<div>Loading...</div>}>
+              <Contact />
+            </Suspense>
           </SwiperSlide>
         </Swiper>
       </>

@@ -1,19 +1,15 @@
-import React, { use, useRef } from "react";
-import Image from "next/image";
-import { japanese, hind, rubik } from "../../../font_family/font_family";
+import React, { useRef } from "react";
+import { japanese, hind } from "../../../font_family/font_family";
 
 import DottedOutlineBox from "../layout/DottedOutlineBox";
 import SectionTitle from "../title/SectionTitle";
 
-import { Swiper, SwiperSlide, SwiperRef } from "swiper/react";
+import { Swiper, SwiperRef } from "swiper/react";
 import { EffectCoverflow, Mousewheel } from "swiper/modules";
 
 import "swiper/css/effect-coverflow";
 import Section from "../layout/Section";
 
-import ReactCardFlip from "react-card-flip";
-import Button from "../button/Button";
-import Link from "next/link";
 import { useMediaQuery } from "react-responsive";
 import { useTranslation } from "next-i18next";
 import { useSwiperPropjectSlides } from "../cards/SwiperProjectCards";
