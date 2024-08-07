@@ -2,7 +2,7 @@ import React from "react";
 import { rubik, hind, japanese } from "../../../font_family/font_family";
 import Button from "../button/Button";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { domAnimation, LazyMotion, m } from "framer-motion";
 import { useTranslation } from "next-i18next";
 const Hero = ({}) => {
   const { t } = useTranslation("common");
@@ -19,10 +19,10 @@ const Hero = ({}) => {
           <div className="w-full md:w-2/3 mb-[7rem] md:mb-0">
             <h1 className="text-mainYellow text-[11vw] sm:text-[4.5rem] md:text-[5.5rem]  tracking-tighter sm:leading-[70px] md:leading-[90px] max-xs:mt-10 drop-shadow-lg ">
               <div className={`${rubik.className} flex flex-col mb-3 sm:mb-5`}>
-                <div className="flex -ml-1">
-                  {heroTitle1.map((letter, index) => {
-                    return (
-                      <motion.div
+                <LazyMotion features={domAnimation}>
+                  <div className="flex -ml-1">
+                    {heroTitle1.map((letter, index) => (
+                      <m.div
                         key={index}
                         initial={{
                           opacity: 0,
@@ -35,14 +35,12 @@ const Hero = ({}) => {
                               ? "90"
                               : "-90"
                           }`,
-
                           x: `${index % 2 === 0 ? "-100%" : "0%"}`,
                           y: `${index % 2 !== 0 ? "-100%" : "0%"}`
                         }}
                         animate={{
                           opacity: 1,
                           rotate: "0",
-
                           x: "0",
                           y: "0"
                         }}
@@ -57,79 +55,84 @@ const Hero = ({}) => {
                         className="inline-block leading-tight md:leading-normal"
                       >
                         {letter}
-                      </motion.div>
-                    );
-                  })}
-                </div>
+                      </m.div>
+                    ))}
+                  </div>
+                </LazyMotion>
                 <div className="flex -ml-1">
                   {heroTitle2.map((letter, index) => {
                     return (
-                      <motion.div
-                        key={index}
-                        initial={{
-                          opacity: 0,
-                          rotate: `${
-                            index % 2 === 0
-                              ? index % 4 === 0
-                                ? "-90"
-                                : "90"
-                              : index % 3 === 0
-                              ? "90"
-                              : "-90"
-                          }`,
+                      <LazyMotion features={domAnimation} key={index}>
+                        <m.div
+                          initial={{
+                            opacity: 0,
+                            rotate: `${
+                              index % 2 === 0
+                                ? index % 4 === 0
+                                  ? "-90"
+                                  : "90"
+                                : index % 3 === 0
+                                ? "90"
+                                : "-90"
+                            }`,
 
-                          x: `${index % 2 === 0 ? "-100%" : "0%"}`,
-                          y: `${index % 2 !== 0 ? "-100%" : "0%"}`
-                        }}
-                        animate={{
-                          opacity: 1,
-                          rotate: "0",
+                            x: `${index % 2 === 0 ? "-100%" : "0%"}`,
+                            y: `${index % 2 !== 0 ? "-100%" : "0%"}`
+                          }}
+                          animate={{
+                            opacity: 1,
+                            rotate: "0",
 
-                          x: "0",
-                          y: "0"
-                        }}
-                        transition={{
-                          duration: 0.2,
-                          delay: index * 0.05,
-                          type: `${
-                            index === heroTitle2.length - 1 ? "spring" : "tween"
-                          }`,
-                          stiffness: 100
-                        }}
-                        className="inline-block leading-10"
-                      >
-                        {letter}
-                      </motion.div>
+                            x: "0",
+                            y: "0"
+                          }}
+                          transition={{
+                            duration: 0.2,
+                            delay: index * 0.05,
+                            type: `${
+                              index === heroTitle2.length - 1
+                                ? "spring"
+                                : "tween"
+                            }`,
+                            stiffness: 100
+                          }}
+                          className="inline-block leading-10"
+                        >
+                          {letter}
+                        </m.div>
+                      </LazyMotion>
                     );
                   })}
                 </div>
               </div>
             </h1>
-            <motion.h2
-              className={`${currentFont.className} mt-1 leading-[1rem]  sm:leading-1 md:leading-6 text-fontGray text-[.8rem] sm:text-[1rem] w-full sm:mb-10`}
-              initial={{ opacity: 0, y: "70%" }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: 0.6 }}
-            >
-              {t("hero.description1")}
-              <br />
-              {t("hero.description2")}
-            </motion.h2>
-            <motion.div
-              className="mt-5"
-              initial={{ opacity: 0, y: "70%" }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: 0.6 }}
-            >
-              <Link
-                href="https://drive.google.com/file/d/1TwaLWXM29RUKLkFSjQZsI6g7E7A9HUKT/view?usp=drive_link"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block"
+            <LazyMotion features={domAnimation}>
+              <m.h2
+                className={`${currentFont.className} mt-1 leading-[1rem]  sm:leading-1 md:leading-6 text-fontGray text-[.8rem] sm:text-[1rem] w-full sm:mb-10`}
+                initial={{ opacity: 0, y: "70%" }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: 0.6 }}
               >
-                <Button>{t("resume")}</Button>
-              </Link>
-            </motion.div>
+                {t("hero.description1")}
+                <br />
+                {t("hero.description2")}
+              </m.h2>
+              <m.div
+                className="mt-5"
+                initial={{ opacity: 0, y: "70%" }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: 0.6 }}
+              >
+                <Link
+                  href="https://drive.google.com/file/d/1TwaLWXM29RUKLkFSjQZsI6g7E7A9HUKT/view?usp=drive_link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block"
+                >
+                  <Button>{t("resume")}</Button>
+                </Link>
+              </m.div>
+            </LazyMotion>
           </div>
         </div>
       </section>

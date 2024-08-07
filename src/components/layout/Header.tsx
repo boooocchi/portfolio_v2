@@ -1,7 +1,7 @@
 import React from "react";
 import { hind, rubik } from "../../../font_family/font_family";
 import { useMediaQuery } from "react-responsive";
-import { motion } from "framer-motion";
+import { domAnimation, LazyMotion, m } from "framer-motion";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
 
@@ -161,22 +161,27 @@ const Header: React.FC<HeaderProps> = ({ swiper, activePageNumber }) => {
                     <ul className="absolute w-full top-[2.7rem]">
                       {languageOptions.map((option, index) => (
                         <li key={index}>
-                          <motion.option
-                            initial={{ opacity: 0, y: "70%" }}
-                            animate={{
-                              opacity:
-                                i18n.language !== option.value ? "0.5" : "1",
-                              y: 0
-                            }}
-                            transition={{ duration: 0.2, delay: index * 0.05 }}
-                            value={option.value}
-                            onClick={() => handleSwitchLanguage(option.value)}
-                            className={`underline text-center cursor-pointer ${
-                              i18n.language !== option.value && "opacity-25"
-                            }`}
-                          >
-                            {option.label}
-                          </motion.option>
+                          <LazyMotion features={domAnimation}>
+                            <m.option
+                              initial={{ opacity: 0, y: "70%" }}
+                              animate={{
+                                opacity:
+                                  i18n.language !== option.value ? "0.5" : "1",
+                                y: 0
+                              }}
+                              transition={{
+                                duration: 0.2,
+                                delay: index * 0.05
+                              }}
+                              value={option.value}
+                              onClick={() => handleSwitchLanguage(option.value)}
+                              className={`underline text-center cursor-pointer ${
+                                i18n.language !== option.value && "opacity-25"
+                              }`}
+                            >
+                              {option.label}
+                            </m.option>
+                          </LazyMotion>
                         </li>
                       ))}
                     </ul>
@@ -276,8 +281,8 @@ const MenuModal: React.FC<MenuModalProps> = ({ isOpen, setIsOpen }) => {
     "text-fontGray  relative drop-shadow-md  hover:text-[2.2rem]  hover:duration-300";
 
   return (
-    <>
-      <motion.div
+    <LazyMotion features={domAnimation}>
+      <m.div
         initial={"closed"}
         animate={isOpen ? "open" : "closed"}
         variants={modalVariants}
@@ -295,13 +300,13 @@ const MenuModal: React.FC<MenuModalProps> = ({ isOpen, setIsOpen }) => {
           disabled={!isOpen}
           aria-label="Open menu"
         >
-          <motion.svg
+          <m.svg
             viewBox="0 0 600 600"
             initial="hidden"
             className="stroke-[5rem] h-4 w-4"
             animate={isOpen ? "visible" : "hidden"}
           >
-            <motion.line
+            <m.line
               x1="0"
               y1="0"
               x2="600"
@@ -309,7 +314,7 @@ const MenuModal: React.FC<MenuModalProps> = ({ isOpen, setIsOpen }) => {
               stroke="white"
               variants={draw}
             />
-            <motion.line
+            <m.line
               x1="0"
               y1="600"
               x2="600"
@@ -317,16 +322,16 @@ const MenuModal: React.FC<MenuModalProps> = ({ isOpen, setIsOpen }) => {
               stroke="white"
               variants={draw}
             />
-          </motion.svg>
+          </m.svg>
         </button>
-        <motion.ul
+        <m.ul
           variants={ulVariants}
           className={`min-h-[550px] flex flex-col gap-[2rem] items-center justify-center text-[2rem] ${rubik.className} `}
         >
           {navItems.map((item) => {
             return (
               <li key={item.id}>
-                <motion.a
+                <m.a
                   variants={buttonVariants}
                   className={navLiClassName}
                   href={`#${item.name}`}
@@ -336,11 +341,11 @@ const MenuModal: React.FC<MenuModalProps> = ({ isOpen, setIsOpen }) => {
                   }}
                 >
                   {item.name}
-                </motion.a>
+                </m.a>
               </li>
             );
           })}
-          <motion.li
+          <m.li
             variants={buttonVariants}
             className="flex flex-col gap-2 text-[1rem] items-center text-white"
           >
@@ -363,9 +368,9 @@ const MenuModal: React.FC<MenuModalProps> = ({ isOpen, setIsOpen }) => {
                 JP
               </button>
             </div>
-          </motion.li>
-        </motion.ul>
-      </motion.div>
-    </>
+          </m.li>
+        </m.ul>
+      </m.div>
+    </LazyMotion>
   );
 };

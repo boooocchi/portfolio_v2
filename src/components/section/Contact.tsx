@@ -15,7 +15,7 @@ import { FieldErrors, useForm } from "react-hook-form";
 import Button from "../button/Button";
 import { useMediaQuery } from "react-responsive";
 import { japanese, hind, rubik } from "../../../font_family/font_family";
-import { motion } from "framer-motion";
+import { domAnimation, LazyMotion, m } from "framer-motion";
 import { useTranslation } from "next-i18next";
 
 type ContactFormValues = {
@@ -249,11 +249,11 @@ type MessageModalProps = {
 const MessageModal: React.FC<MessageModalProps> = ({ setModal }) => {
   const { t } = useTranslation("common");
   return (
-    <>
+    <LazyMotion features={domAnimation}>
       <div>
         <div className="fixed top-0 left-0 w-full h-full bg-black opacity-50 z-[998]"></div>
       </div>
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: "-10%", x: "-50%" }}
         animate={{ opacity: 1, y: "0%", x: "-50%" }}
         transition={{
@@ -269,7 +269,7 @@ const MessageModal: React.FC<MessageModalProps> = ({ setModal }) => {
           <span className="text-[.8rem]">Your message successfully sent.</span>
         </h1>
         <Button onClick={() => setModal(false)}>{t("contact.close")}</Button>
-      </motion.div>
-    </>
+      </m.div>
+    </LazyMotion>
   );
 };

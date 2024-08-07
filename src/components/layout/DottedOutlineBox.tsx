@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { domAnimation, LazyMotion, m } from "framer-motion";
 import React from "react";
 import { useMediaQuery } from "react-responsive";
 
@@ -27,24 +27,26 @@ const DottedOutlineBox: React.FC<dottedOutlineBoxProps> = ({
           {children}
         </div>
       ) : (
-        <motion.div
-          initial={{
-            opacity: 0,
-            x: `${lineColor === "mainBlue" ? "-5%" : "5%"}`
-          }}
-          whileInView={{
-            opacity: 1,
-            x: "0%",
-            transition: {
-              duration: 0.5,
-              stiffness: 100
-            }
-          }}
-          viewport={{ once: true, amount: 0.4 }}
-          className={`${dottedOutlineBoxClassName} ${basicClass}`}
-        >
-          {children}
-        </motion.div>
+        <LazyMotion features={domAnimation}>
+          <m.div
+            initial={{
+              opacity: 0,
+              x: `${lineColor === "mainBlue" ? "-5%" : "5%"}`
+            }}
+            whileInView={{
+              opacity: 1,
+              x: "0%",
+              transition: {
+                duration: 0.5,
+                stiffness: 100
+              }
+            }}
+            viewport={{ once: true, amount: 0.4 }}
+            className={`${dottedOutlineBoxClassName} ${basicClass}`}
+          >
+            {children}
+          </m.div>
+        </LazyMotion>
       )}
     </>
   );
