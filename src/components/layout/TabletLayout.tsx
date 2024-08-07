@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "./Header";
-import VerticalLink from "../VerticalLink";
+import VerticalLink from "../button/VerticalLink";
 import Hero from "../section/Hero";
 import AboutMe from "../section/AboutMe";
 import Skill from "../section/Skill";
