@@ -3,7 +3,7 @@ import React from "react";
 import DottedOutlineBox from "../layout/DottedOutlineBox";
 import Section from "../layout/Section";
 
-import { hind, rubik } from "../../../font_family/font_family";
+import { hind } from "../../../font_family/font_family";
 import SectionTitle from "../title/SectionTitle";
 import Subtitle from "../title/Subtitle";
 
@@ -59,7 +59,7 @@ const Skill = () => {
             </div>
           </div>
         </div>
-        <div className="w-full ">
+        <div className="w-full">
           <Subtitle>+Framework/Library</Subtitle>
           <div>
             <ul className="flex gap-y-2 gap-x-3 sm:gap-x-4 sm:gap-y-3 md:gap-x-7 md:gap-y-5 flex-wrap">

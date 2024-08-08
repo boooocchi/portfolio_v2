@@ -14,7 +14,7 @@ export const contactSchema = yup
     function (value) {
       if (!value.email && !value.number) {
         return this.createError({
-          path: "eitherEmailorNumber", // You can specify either 'email' or 'number' here
+          path: "eitherEmailorNumber",
           message: "Please enter either email or phone number"
         });
       }

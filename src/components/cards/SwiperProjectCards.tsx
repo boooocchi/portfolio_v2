@@ -33,7 +33,7 @@ export const useSwiperPropjectSlides = () => {
     {
       title: "SmartRecipe",
       description:
-        "A web application that enables users to easily search for recipes using  keywords and refine the search result by ingredients and diet type.",
+        "A web app that lets users search for recipes by keywords and refine results by ingredients and diet type.",
       image: "/image/work/smartRecipe.webp",
       fallBackImage: "/image/work/smartRecipe.png",
       squareImage: "/image/work/smartRecipe_square.webp",
@@ -152,7 +152,7 @@ export const useSwiperPropjectSlides = () => {
                 className={`sm:mt-2 mt-1 flex flex-col h-[50%] text-mainBlack justify-between ${hind.className} w-full leading-tight`}
               >
                 <p className="max-xs:text-[.9rem]">{workCard.description}</p>
-                <div className="mb-2 sm:mb-1 text-[.8rem] flex flex-col gap-1">
+                <div className="mb-1 sm:mb-1 text-[.8rem] flex flex-col gap-1">
                   <span className={isSM ? "hidden" : "flex"}>-tech stach-</span>
                   <div className="whitespace-normal w-full">
                     {workCard.techStack.map((tech, index) => (
