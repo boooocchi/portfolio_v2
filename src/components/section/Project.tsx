@@ -20,7 +20,6 @@ const Project: React.FC<{ activePageNumber?: number }> = ({
   const { t } = useTranslation("common");
   const worksCardSwiperRef = useRef<SwiperRef>(null);
 
-  //useMediaQUery
   const isPc = useMediaQuery({
     query: "(min-width: 1025px)"
   });
